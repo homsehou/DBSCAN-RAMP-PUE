@@ -1,0 +1,305 @@
+{
+  "Dry season": {
+    "season": "Dry season",
+    "converged": false,
+    "score": 6.8751,
+    "n_evals": 1731,
+    "global_params": {
+      "func_time_min": 244.7,
+      "func_cycle_min": 25.5,
+      "random_var_w": 0.161,
+      "occasional_use": 1.0,
+      "time_frac_var": 0.182,
+      "thermal_p_var": 0.0,
+      "n_windows": 3
+    },
+    "analytical_comparison": {
+      "func_time_analytical": 255.1,
+      "func_time_delta_pct": -4.1
+    },
+    "windows": [
+      {
+        "window_id": 1,
+        "start_min": 360,
+        "end_min": 765,
+        "start_h": 6.0,
+        "end_h": 12.75,
+        "duration_min": 405,
+        "duty_cycle": {
+          "p1_W": 1529.9,
+          "t1_min": 102,
+          "p2_W": 339.4,
+          "t2_min": 50,
+          "r_c": 0.24333914781211696
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2059.7,
+          "p1_delta_pct": -25.7,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 360,
+          "end_analytical_min": 765
+        }
+      },
+      {
+        "window_id": 2,
+        "start_min": 765,
+        "end_min": 855,
+        "start_h": 12.75,
+        "end_h": 14.25,
+        "duration_min": 90,
+        "duty_cycle": {
+          "p1_W": 1531.3,
+          "t1_min": 39,
+          "p2_W": 333.0,
+          "t2_min": 3,
+          "r_c": 0.3004286180581951
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2119.6,
+          "p1_delta_pct": -27.8,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 765,
+          "end_analytical_min": 855
+        }
+      },
+      {
+        "window_id": 3,
+        "start_min": 855,
+        "end_min": 1275,
+        "start_h": 14.25,
+        "end_h": 21.25,
+        "duration_min": 420,
+        "duty_cycle": {
+          "p1_W": 3468.4,
+          "t1_min": 68,
+          "p2_W": 859.9,
+          "t2_min": 34,
+          "r_c": 0.18646567012978546
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2323.9,
+          "p1_delta_pct": 49.2,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 855,
+          "end_analytical_min": 1275
+        }
+      }
+    ],
+    "validation": {
+      "NRMSE": 0.0846,
+      "LDC_err": 0.0146,
+      "FFT_err": 0.0793,
+      "err_E_pct": 0.18,
+      "err_P_pct": -8.9617,
+      "err_LF": 0.0277
+    }
+  },
+  "Rainy season": {
+    "season": "Rainy season",
+    "converged": false,
+    "score": 2.6771,
+    "n_evals": 1707,
+    "global_params": {
+      "func_time_min": 436.6,
+      "func_cycle_min": 42.2,
+      "random_var_w": 0.0781,
+      "occasional_use": 1.0,
+      "time_frac_var": 0.1956,
+      "thermal_p_var": 0.0,
+      "n_windows": 3
+    },
+    "analytical_comparison": {
+      "func_time_analytical": 436.6,
+      "func_time_delta_pct": 0.0
+    },
+    "windows": [
+      {
+        "window_id": 1,
+        "start_min": 345,
+        "end_min": 600,
+        "start_h": 5.75,
+        "end_h": 10.0,
+        "duration_min": 255,
+        "duty_cycle": {
+          "p1_W": 2168.6,
+          "t1_min": 44,
+          "p2_W": 648.1,
+          "t2_min": 14,
+          "r_c": 0.33528342981044906
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2589.1,
+          "p1_delta_pct": -16.2,
+          "t1_analytical_min": 45
+        },
+        "analytical_window": {
+          "start_analytical_min": 345,
+          "end_analytical_min": 600
+        }
+      },
+      {
+        "window_id": 2,
+        "start_min": 600,
+        "end_min": 780,
+        "start_h": 10.0,
+        "end_h": 13.0,
+        "duration_min": 180,
+        "duty_cycle": {
+          "p1_W": 2050.1,
+          "t1_min": 44,
+          "p2_W": 664.6,
+          "t2_min": 15,
+          "r_c": 0.3383636721776592
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2711.5,
+          "p1_delta_pct": -24.4,
+          "t1_analytical_min": 45
+        },
+        "analytical_window": {
+          "start_analytical_min": 600,
+          "end_analytical_min": 780
+        }
+      },
+      {
+        "window_id": 3,
+        "start_min": 780,
+        "end_min": 1230,
+        "start_h": 13.0,
+        "end_h": 20.5,
+        "duration_min": 450,
+        "duty_cycle": {
+          "p1_W": 3180.6,
+          "t1_min": 44,
+          "p2_W": 1212.7,
+          "t2_min": 28,
+          "r_c": 0.3416872317213035
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 3005.3,
+          "p1_delta_pct": 5.8,
+          "t1_analytical_min": 45
+        },
+        "analytical_window": {
+          "start_analytical_min": 780,
+          "end_analytical_min": 1230.0
+        }
+      }
+    ],
+    "validation": {
+      "NRMSE": 0.0646,
+      "LDC_err": 0.0201,
+      "FFT_err": 0.0259,
+      "err_E_pct": -0.0921,
+      "err_P_pct": -4.9414,
+      "err_LF": 0.0172
+    }
+  },
+  "Transition": {
+    "season": "Transition",
+    "converged": false,
+    "score": 6.8428,
+    "n_evals": 1771,
+    "global_params": {
+      "func_time_min": 304.4,
+      "func_cycle_min": 19.0,
+      "random_var_w": 0.2184,
+      "occasional_use": 1.0,
+      "time_frac_var": 0.3819,
+      "thermal_p_var": 0.0,
+      "n_windows": 3
+    },
+    "analytical_comparison": {
+      "func_time_analytical": 295.9,
+      "func_time_delta_pct": 2.9
+    },
+    "windows": [
+      {
+        "window_id": 1,
+        "start_min": 345,
+        "end_min": 615,
+        "start_h": 5.75,
+        "end_h": 10.25,
+        "duration_min": 270,
+        "duty_cycle": {
+          "p1_W": 1257.1,
+          "t1_min": 59,
+          "p2_W": 218.6,
+          "t2_min": 16,
+          "r_c": 1.0
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 1952.1,
+          "p1_delta_pct": -35.6,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 345,
+          "end_analytical_min": 615
+        }
+      },
+      {
+        "window_id": 2,
+        "start_min": 615,
+        "end_min": 750,
+        "start_h": 10.25,
+        "end_h": 12.5,
+        "duration_min": 135,
+        "duty_cycle": {
+          "p1_W": 1090.3,
+          "t1_min": 42,
+          "p2_W": 208.9,
+          "t2_min": 16,
+          "r_c": 0.8848169681656763
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 1898.6,
+          "p1_delta_pct": -42.6,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 615,
+          "end_analytical_min": 750
+        }
+      },
+      {
+        "window_id": 3,
+        "start_min": 963,
+        "end_min": 1200,
+        "start_h": 16.05,
+        "end_h": 20.0,
+        "duration_min": 237,
+        "duty_cycle": {
+          "p1_W": 5756.6,
+          "t1_min": 46,
+          "p2_W": 962.6,
+          "t2_min": 26,
+          "r_c": 0.04707416239545245
+        },
+        "analytical_comparison": {
+          "p1_analytical_W": 2667.9,
+          "p1_delta_pct": 115.8,
+          "t1_analytical_min": 30
+        },
+        "analytical_window": {
+          "start_analytical_min": 750,
+          "end_analytical_min": 1200.0
+        }
+      }
+    ],
+    "validation": {
+      "NRMSE": 0.1581,
+      "LDC_err": 0.0632,
+      "FFT_err": 0.073,
+      "err_E_pct": 0.0756,
+      "err_P_pct": -0.3937,
+      "err_LF": 0.0009
+    }
+  }
+}

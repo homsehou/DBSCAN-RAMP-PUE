@@ -1,0 +1,4 @@
+season,NRMSE,LDC_err,FFT_err,err_E_pct,err_P_pct,err_LF,temporal_penalty,peak_penalty,peak_timing_penalty,bounds_penalty,late_tail_penalty,window_target_penalty,window_profile_penalty,window_level_penalty,window_peak_match_penalty,boundary_continuity_penalty,window_weight_penalty,func_time_penalty,cycle_anchor_penalty,converged
+Dry season,0.1155,0.0282,0.0311,-1.2033,0.1251,-0.0052,0.0,0.3381,0.6,0.1667,0.2486,0.125,0.207,0.1422,0.3735,0.06,0.0001,0.4004,0.5608,False
+Rainy season,0.084,0.0383,0.0431,5.1253,-1.0018,0.0254,0.0,0.2535,0.0,0.2083,0.0218,0.025,0.0195,0.1939,0.2354,0.1075,0.0,0.0571,0.4395,False
+Transition,0.211,0.0294,0.079,7.1443,-0.0052,0.0229,0.0,0.5597,0.6667,0.1667,0.522,0.075,0.5026,0.3794,0.931,0.0653,0.0388,0.1971,0.6619,False

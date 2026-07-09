@@ -1,0 +1,15 @@
+# Exact versions used to produce the committed results. Install with:
+#   pip install -r requirements.txt
+# Newer versions usually work, but the calibration figures are only guaranteed
+# to reproduce bit-for-bit with these.
+numpy==2.4.4
+pandas==2.3.3
+scipy==1.17.1
+scikit-learn==1.8.0
+scikit-optimize==0.10.2
+matplotlib==3.10.9
+joblib==1.5.3
+tqdm==4.67.3
+openpyxl==3.1.5
+jupyterlab==4.6.1
+ipykernel==6.31.0

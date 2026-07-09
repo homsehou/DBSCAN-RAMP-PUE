@@ -1,0 +1,7 @@
+season,cluster,n_days
+Dry season,-1,6
+Dry season,0,154
+Rainy season,-1,4
+Rainy season,0,21
+Transition,-1,1
+Transition,0,42

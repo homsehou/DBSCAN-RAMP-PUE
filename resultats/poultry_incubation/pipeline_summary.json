@@ -1,0 +1,17 @@
+{
+  "n_clients": 1,
+  "clients": [
+    {
+      "client": "0152GBO",
+      "n_days_kept": 228,
+      "dt_step1_s": 6.495691776275635,
+      "n_clusters": 1,
+      "n_seasons": 3,
+      "fallback": false,
+      "dt_step2_s": 0.5716259479522705,
+      "dt_v8_s": 1709.494995355606,
+      "dt_synthese_s": 1.3060338497161865,
+      "dt_total_s": 1717.8683564662933
+    }
+  ]
+}
