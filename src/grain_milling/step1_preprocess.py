@@ -27,7 +27,7 @@ SEASON_LABELS_EN = {"Dry season": "Dry season", "Transition": "Transition season
 
 
 def season_label_en(season_name):
-    """English label of a season, used on every exported figure."""
+    """label of a season, used on every exported figure."""
     return SEASON_LABELS_EN.get(season_name, season_name)
 
 
