@@ -164,7 +164,8 @@ def _classify_segment_states(segment):
                 "low_level": 0.0, "high_level": seg_max, "threshold": seg_max}
 
     # Two-level k-means seeds from the 30th/80th percentiles of the active samples: a robust low/high
-    # starting split, Two-level k-means seeds from the 30th/80th percentiles of the active samples: a robust low/high starting split, widened to the 20th/90th percentiles on a collision of the two seeds.
+    # starting split, widened to the 20th/90th percentiles on a collision of the two seeds.                                                                                                                     
+    
     low_center = float(np.percentile(active_vals, 30))
     high_center = float(np.percentile(active_vals, 80))
     if high_center <= low_center:
@@ -234,7 +235,7 @@ def extract_cycle_for_window(profile_15min, w_start_min, w_end_min):
     window_profile = profile_15min[s_start:s_end]
 
     # Neutral fallback duty cycle for an empty or flat window: default 1000 W / 5 min ON and
-    # 100 W / 5 min OFF, plausible ballpark values for a stalled machine.
+    # 100 W / 5 min OFF.
     # r_c (cycle-time random coefficient): relative jitter applied by RAMP to the ON durations,
     # here a mild 0.10 for a near-fixed cycle length.
     if len(window_profile) == 0 or np.nanmax(window_profile) <= 0:
@@ -300,17 +301,19 @@ def _cycle_from_segments(segments, fallback_profile):
     fb_low = s_fallback[fb_states["low_mask"]]
     fb_high = s_fallback[fb_states["high_mask"]]
 
-    # ON power p1: 60th percentile of the daily high-state samples, # ON power p1: 60th percentile of the daily high-state samples, or the 85th percentile
+    # ON power p1: 60th percentile of the daily high-state samples, or the 85th percentile
     # of the low state as a proxy in the absence of any high state across the days.
     if high_vals:
         high_vals = np.concatenate(high_vals)
         p1_daily = float(np.percentile(high_vals, 60))
     else:
         p1_daily = float(np.percentile(np.concatenate(low_vals), 85))
-    # Blend of the daily estimate (0.70) and the seasonal reference (0.30, 75th percentile of its
-    # high state), # Blend of the daily estimate (0.70) and the seasonal reference (0.30, 75th percentile
-    # of its high state), clipped to a band around both anchors against domination of p1
-    # by either a noisy day or the reference alone.
+             
+    # Blend of the daily estimate (0.70) and the seasonal reference (0.30, 75th
+    # percentile of its high state), clipped to a band around both anchors against
+    # domination of p1 by either a noisy day or the reference alone.                                                                                                                                                  
+
+         
     if len(fb_high) > 0:
         p1_ref = float(np.percentile(fb_high, 75))
         p1 = float(np.clip(0.70 * p1_daily + 0.30 * p1_ref,
@@ -323,6 +326,7 @@ def _cycle_from_segments(segments, fallback_profile):
     # OFF power p2: 45th percentile of the daily low-state samples (or 20th of the high state as a
     # proxy), blended 0.65 daily / 0.35 seasonal reference and capped below 55% of p1 to keep a real
     # ON/OFF contrast.
+         
     if low_vals:
         low_vals = np.concatenate(low_vals)
         p2_daily = float(np.percentile(low_vals, 45))
@@ -370,9 +374,10 @@ def extract_daily_events(day_profile, day_idx):
     if day_max <= 0:
         return []
 
-    # Activity threshold at 16% of the daily peak, floored at 50 W to ignore standby noise; # Activity threshold at 16% of the daily peak, floored at 50 W to ignore standby
-    # noise; the 0.62 factor as a looser mask threshold, preserving event edges below the
-    # peak level.
+    # Activity threshold at 16% of the daily peak, floored at 50 W to ignore standby
+    # noise; the 0.62 factor as a looser mask threshold, preserving event edges below
+    # the peak level.
+         
     activity_thr = max(day_max * 0.16, 50.0)
     active_mask = smoothed >= activity_thr * 0.62
     active_mask = _fill_small_gaps(active_mask, max_gap=1)
