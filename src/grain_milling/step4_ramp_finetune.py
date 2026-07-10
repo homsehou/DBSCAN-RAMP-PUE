@@ -18,7 +18,7 @@ deterministic for a given client.
 Inputs  : analytical_params.csv, seasonal_representative_profiles.csv,
           clustered_features.csv
 Outputs : ramp_calibrated_params.csv, validation_metrics.csv,
-          figures/40_calib_*, 41_ldc_*, 42_fft_* (English labels)
+          figures/40_calib_*, 41_ldc_*, 42_fft_*
 """
 
 import io
@@ -131,7 +131,7 @@ def build_simulation_dates_by_season(clustered_features, seasonal_profile_table)
             dates_by_season[season] = []
             continue
         dates = pd.to_datetime(season_rows.index).normalize().sort_values().unique()
-        dates_by_season[season] = [pd.Timestamp(dt) for dt in dates]
+        dates_by_season[season] = [pd.Timestamp(dt) for dt in dates]-
     return dates_by_season
 
 
@@ -233,7 +233,7 @@ def max_safe_random_var_w(windows, margin=WINDOW_SAFETY_MARGIN):
     start can overtake the drawn end; the core then fills a window of negative
     length and numpy raises "negative dimensions are not allowed", so the whole
     day is dropped. Dropping the days that happen to carry the peak pulls the mean
-    peak down, which is exactly the underestimation the committee flagged.
+    peak down.
 
     Keeping the jitter below half of the narrowest window, minus a small margin,
     leaves every window at least `margin` minutes wide for any random draw. The
