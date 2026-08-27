@@ -20,7 +20,6 @@ Modele_RC_2R2C_congelateur/
 ├── data_ref/
 │   ├── Test1/Collected_data.xlsx   # calibration data (power 1 s, temperatures 10 s)
 │   └── Test2/Collected_data.xlsx   # blind validation data
-├── docs/                   # detailed methodology (PDF) and final report
 └── results/                # figures, parameters (JSON), summary (CSV)
 ```
 
