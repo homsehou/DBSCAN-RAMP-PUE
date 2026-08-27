@@ -1,0 +1,5 @@
+season,method_arm,p1_W,p1_anchor_W,p2_W,p2_anchor_W,n_regions,cycle_len_min,func_time_min,func_cycle_min,thermal_p_var,tfrv,occasional_use,region1_window,region1_power_W,region1_duty,region1_t_on_min,region1_t_off_min,region2_window,region2_power_W,region2_duty,region2_t_on_min,region2_t_off_min,region3_window,region3_power_W,region3_duty,region3_t_on_min,region3_t_off_min
+Dry season,screened,22.0,134.6,0.0,0.53,3,121,1440,121,0.2,0.0,0.909,0-420,18.6,0.7351,89,32,420-1140,1.3,0.4993,60,61,1140-1440,19.6,0.98,119,2
+May,screened,42.0,42.0,0.0,0.47,3,132,1440,132,0.2,0.0,0.952,0-360,20.8,0.6478,86,46,360-1140,33.1,0.0337,4,128,1140-1440,20.0,0.98,129,3
+Rainy season,classic,32.0,32.0,0.53,0.53,3,65,1440,65,0.1,0.95,0.98,0-420,32.0,0.3484,23,42,420-1140,32.0,0.0308,2,63,1140-1440,32.0,0.5345,35,30
+October,screened,33.2,25.2,0.0,0.58,3,117,1440,117,0.2,0.812,0.935,0-420,7.3,0.8305,97,20,420-1080,27.0,0.0561,7,110,1080-1440,13.0,0.98,115,2

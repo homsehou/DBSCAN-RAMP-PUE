@@ -1,0 +1,1 @@
+{"Dry season": {"occasional_use": 0.745, "n_active": 79, "n_inactive": 27, "n_stop_days": 30}, "May": {"occasional_use": 0.964, "n_active": 27, "n_inactive": 1, "n_stop_days": 0}, "October": {"occasional_use": 0.0, "n_active": 0, "n_inactive": 27, "n_stop_days": 3}, "Rainy season": {"occasional_use": 0.23, "n_active": 20, "n_inactive": 67, "n_stop_days": 0}}

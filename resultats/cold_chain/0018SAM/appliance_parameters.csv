@@ -1,0 +1,2 @@
+season,method_arm,p1_W,p1_anchor_W,p2_W,p2_anchor_W,n_regions,cycle_len_min,func_time_min,func_cycle_min,thermal_p_var,tfrv,occasional_use,region1_window,region1_power_W,region1_duty,region1_t_on_min,region1_t_off_min,region2_window,region2_power_W,region2_duty,region2_t_on_min,region2_t_off_min,region3_window,region3_power_W,region3_duty,region3_t_on_min,region3_t_off_min
+Dry season,screened,230.0,232.6,4.0,4.0,3,8,1440,8,0.1,0.0,0.975,0-660,230.0,0.3819,3,5,660-1140,230.0,0.2751,2,6,1140-1440,230.0,0.5669,5,3

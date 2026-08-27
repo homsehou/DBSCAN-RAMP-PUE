@@ -1,0 +1,367 @@
+day,season,E_kWh,active,operation_stop
+2024-10-01,October,15.361,True,False
+2024-10-02,October,9.098,True,False
+2024-10-03,October,10.9815,True,False
+2024-10-04,October,11.792,True,False
+2024-10-05,October,22.08,True,False
+2024-10-07,October,10.3035,True,False
+2024-10-08,October,26.26,True,False
+2024-10-09,October,20.838,True,False
+2024-10-10,October,21.053,True,False
+2024-10-11,October,20.494,True,False
+2024-10-12,October,21.7555,True,False
+2024-10-16,October,27.918,True,False
+2024-10-17,October,17.471,True,False
+2024-10-18,October,14.7635,True,False
+2024-10-19,October,19.353,True,False
+2024-10-20,October,25.31475,True,False
+2024-10-21,October,9.564,True,False
+2024-10-22,October,8.3525,True,False
+2024-10-23,October,12.1765,True,False
+2024-10-24,October,10.799,True,False
+2024-10-25,October,19.404,True,False
+2024-10-26,October,21.873,True,False
+2024-10-27,October,15.2485,True,False
+2024-10-28,October,7.4715,True,False
+2024-10-29,October,3.9995,True,False
+2024-10-30,October,3.5615,True,False
+2024-10-31,October,0.866,False,False
+2024-11-01,Dry season,5.28,True,False
+2024-11-02,Dry season,3.981,True,False
+2024-11-03,Dry season,7.183,True,False
+2024-11-04,Dry season,14.8585,True,False
+2024-11-05,Dry season,17.0575,True,False
+2024-11-06,Dry season,5.0025,True,False
+2024-11-07,Dry season,0.119,False,False
+2024-11-08,Dry season,1.184,False,False
+2024-11-09,Dry season,0.116,False,False
+2024-11-10,Dry season,0.1145,False,False
+2024-11-11,Dry season,6.0575,True,False
+2024-11-12,Dry season,0.15,False,False
+2024-11-13,Dry season,3.5575,True,False
+2024-11-14,Dry season,11.2505,True,False
+2024-11-15,Dry season,6.767,True,False
+2024-11-16,Dry season,13.1535,True,False
+2024-11-17,Dry season,12.8445,True,False
+2024-11-18,Dry season,15.492,True,False
+2024-11-19,Dry season,11.901,True,False
+2024-11-20,Dry season,10.9825,True,False
+2024-11-21,Dry season,13.959,True,False
+2024-11-23,Dry season,4.1525,True,False
+2024-11-24,Dry season,3.9975,True,False
+2024-11-25,Dry season,4.1795,True,False
+2024-11-26,Dry season,4.076,True,False
+2024-11-27,Dry season,5.783,True,False
+2024-11-28,Dry season,3.1135,True,False
+2024-11-29,Dry season,6.36525,True,False
+2024-11-30,Dry season,2.3515,True,False
+2024-12-01,Dry season,1.338,True,False
+2024-12-03,Dry season,2.59,True,False
+2024-12-08,Dry season,0.7895,False,False
+2024-12-09,Dry season,2.35,True,False
+2024-12-10,Dry season,3.126,True,False
+2024-12-11,Dry season,1.2445,False,False
+2024-12-12,Dry season,1.345,True,False
+2024-12-13,Dry season,1.171,False,False
+2024-12-14,Dry season,0.791,False,False
+2024-12-15,Dry season,0.6635,False,False
+2024-12-16,Dry season,0.851,False,False
+2024-12-17,Dry season,1.8935,True,False
+2024-12-18,Dry season,1.593,True,False
+2024-12-19,Dry season,1.2545,False,False
+2024-12-20,Dry season,1.4245,True,False
+2024-12-21,Dry season,1.08875,False,False
+2024-12-22,Dry season,1.8815,True,False
+2024-12-23,Dry season,1.4205,True,False
+2024-12-24,Dry season,0.4215,False,False
+2024-12-25,Dry season,0.6745,False,False
+2024-12-26,Dry season,1.1065,False,False
+2024-12-27,Dry season,3.654,True,False
+2024-12-28,Dry season,0.7025,False,False
+2024-12-29,Dry season,1.259,False,False
+2024-12-30,Dry season,0.609,False,False
+2024-12-31,Dry season,0.4925,False,False
+2025-01-06,Dry season,0.01,False,False
+2025-01-07,Dry season,0.8365,False,False
+2025-01-08,Dry season,1.479,True,False
+2025-01-09,Dry season,1.004,False,False
+2025-01-10,Dry season,1.153,False,False
+2025-01-11,Dry season,1.5225,True,False
+2025-01-12,Dry season,0.1115,False,False
+2025-01-13,Dry season,0.3265,False,False
+2025-01-14,Dry season,0.368,False,False
+2025-01-15,Dry season,0.622,False,False
+2025-01-16,Dry season,0.764,False,False
+2025-01-17,Dry season,4.516,True,False
+2025-01-18,Dry season,0.5585,False,False
+2025-01-19,Dry season,2.3045,True,False
+2025-01-20,Dry season,1.12975,False,False
+2025-01-21,Dry season,0.505,False,False
+2025-01-22,Dry season,0.8225,False,False
+2025-01-23,Dry season,0.362,False,False
+2025-01-24,Dry season,4.12,True,False
+2025-01-25,Dry season,3.69125,True,False
+2025-01-26,Dry season,0.678,False,False
+2025-01-28,Dry season,3.791,True,False
+2025-01-29,Dry season,2.247,True,False
+2025-01-30,Dry season,3.2465,True,False
+2025-01-31,Dry season,4.6875,True,False
+2025-02-01,Dry season,4.232,True,False
+2025-02-03,Dry season,1.0095,False,False
+2025-02-07,Dry season,1.7585,True,False
+2025-02-09,Dry season,8.1455,True,False
+2025-02-10,Dry season,4.371,True,False
+2025-02-11,Dry season,2.601,True,False
+2025-02-12,Dry season,3.3495,True,False
+2025-02-13,Dry season,4.086,True,False
+2025-02-14,Dry season,5.277,True,False
+2025-02-15,Dry season,5.5255,True,False
+2025-02-17,Dry season,2.29,True,False
+2025-02-18,Dry season,3.9865,True,False
+2025-02-19,Dry season,2.8825,True,False
+2025-02-20,Dry season,3.45,True,False
+2025-02-21,Dry season,2.938,True,False
+2025-02-22,Dry season,2.395,True,False
+2025-02-23,Dry season,3.3705,True,False
+2025-02-25,Dry season,9.831,True,False
+2025-02-26,Dry season,7.0865,True,False
+2025-02-27,Dry season,4.3285,True,False
+2025-02-28,Dry season,2.262,True,False
+2025-03-01,Dry season,2.356,True,False
+2025-03-02,Dry season,6.509,True,False
+2025-03-03,Dry season,2.0215,True,False
+2025-03-04,Dry season,4.3205,True,False
+2025-03-05,Dry season,5.2265,True,False
+2025-03-06,Dry season,3.5545,True,False
+2025-03-07,Dry season,4.888,True,False
+2025-03-08,Dry season,4.062,True,False
+2025-03-09,Dry season,6.1245,True,False
+2025-03-10,Dry season,4.085,True,False
+2025-03-12,Dry season,0.601,False,False
+2025-03-13,Dry season,7.3025,True,False
+2025-03-16,Dry season,7.078,True,False
+2025-03-17,Dry season,4.402,True,False
+2025-03-18,Dry season,7.3705,True,False
+2025-03-19,Dry season,5.3325,True,False
+2025-03-20,Dry season,2.131,True,False
+2025-03-21,Dry season,3.279,True,False
+2025-03-22,Dry season,5.922,True,False
+2025-03-23,Dry season,4.6615,True,False
+2025-03-25,Dry season,4.2825,True,False
+2025-03-27,Dry season,7.2715,True,False
+2025-03-29,Dry season,3.7365,True,False
+2025-03-31,Dry season,2.4405,True,False
+2025-04-03,Dry season,7.6115,True,False
+2025-04-04,Dry season,2.086,True,False
+2025-04-05,Dry season,6.435,True,False
+2025-04-06,Dry season,13.3525,True,False
+2025-04-07,Dry season,8.5295,True,False
+2025-04-08,Dry season,3.021,True,False
+2025-04-09,Dry season,4.3175,True,False
+2025-04-10,Dry season,6.194,True,False
+2025-04-12,Dry season,7.484,True,False
+2025-04-13,Dry season,6.3985,True,False
+2025-04-14,Dry season,3.2,True,False
+2025-04-15,Dry season,4.5035,True,False
+2025-04-16,Dry season,2.6715,True,False
+2025-04-17,Dry season,3.3045,True,False
+2025-04-18,Dry season,4.6525,True,False
+2025-04-19,Dry season,10.649,True,False
+2025-04-20,Dry season,5.6365,True,False
+2025-04-21,Dry season,4.5035,True,False
+2025-04-22,Dry season,2.27,True,False
+2025-04-23,Dry season,5.596,True,False
+2025-04-24,Dry season,3.4305,True,False
+2025-04-26,Dry season,8.641,True,False
+2025-04-27,Dry season,5.585,True,False
+2025-04-28,Dry season,7.888,True,False
+2025-04-29,Dry season,3.1485,True,False
+2025-04-30,Dry season,4.679,True,False
+2025-05-01,May,4.5305,True,False
+2025-05-02,May,0.953,False,False
+2025-05-03,May,3.005,True,False
+2025-05-04,May,6.04,True,False
+2025-05-06,May,4.246,True,False
+2025-05-07,May,2.8945,True,False
+2025-05-08,May,3.1365,True,False
+2025-05-09,May,4.285,True,False
+2025-05-10,May,5.0775,True,False
+2025-05-11,May,4.045,True,False
+2025-05-12,May,11.5925,True,False
+2025-05-13,May,1.726,True,False
+2025-05-14,May,5.518,True,False
+2025-05-15,May,2.4515,True,False
+2025-05-16,May,5.422,True,False
+2025-05-17,May,5.9085,True,False
+2025-05-18,May,8.3255,True,False
+2025-05-19,May,6.946,True,False
+2025-05-20,May,2.864,True,False
+2025-05-21,May,4.0425,True,False
+2025-05-22,May,3.219,True,False
+2025-05-23,May,5.838,True,False
+2025-05-24,May,4.718,True,False
+2025-05-25,May,4.4785,True,False
+2025-05-26,May,3.9675,True,False
+2025-05-27,May,1.737,True,False
+2025-05-28,May,7.0235,True,False
+2025-05-29,May,3.7245,True,False
+2025-05-30,May,6.1335,True,False
+2025-05-31,May,0.915,False,False
+2025-06-01,Rainy season,4.42,True,False
+2025-06-02,Rainy season,6.4255,True,False
+2025-06-03,Rainy season,5.0765,True,False
+2025-06-04,Rainy season,3.866,True,False
+2025-06-05,Rainy season,3.793,True,False
+2025-06-08,Rainy season,5.0425,True,False
+2025-06-09,Rainy season,4.435,True,False
+2025-06-10,Rainy season,2.599,True,False
+2025-06-11,Rainy season,3.643,True,False
+2025-06-12,Rainy season,4.1445,True,False
+2025-06-13,Rainy season,3.74,True,False
+2025-06-14,Rainy season,3.5115,True,False
+2025-06-15,Rainy season,11.579,True,False
+2025-06-16,Rainy season,4.422,True,False
+2025-06-17,Rainy season,4.747,True,False
+2025-06-18,Rainy season,5.45,True,False
+2025-06-19,Rainy season,3.1105,True,False
+2025-06-20,Rainy season,1.7175,True,False
+2025-06-21,Rainy season,2.927,True,False
+2025-06-22,Rainy season,3.2945,True,False
+2025-06-23,Rainy season,5.1345,True,False
+2025-06-24,Rainy season,2.006,True,False
+2025-06-25,Rainy season,6.9735,True,False
+2025-06-26,Rainy season,0.995,False,False
+2025-06-28,Rainy season,3.933,True,False
+2025-06-29,Rainy season,6.4095,True,False
+2025-06-30,Rainy season,3.0125,True,False
+2025-07-01,Rainy season,3.6035,True,False
+2025-07-02,Rainy season,3.194,True,False
+2025-07-03,Rainy season,3.0625,True,False
+2025-07-04,Rainy season,2.158,True,False
+2025-07-05,Rainy season,4.3655,True,False
+2025-07-06,Rainy season,0.511,False,False
+2025-07-09,Rainy season,4.9385,True,False
+2025-07-10,Rainy season,5.0955,True,False
+2025-07-11,Rainy season,2.3565,True,False
+2025-07-14,Rainy season,4.1265,True,False
+2025-07-15,Rainy season,3.567,True,False
+2025-07-16,Rainy season,3.5545,True,False
+2025-07-17,Rainy season,0.45,False,False
+2025-07-18,Rainy season,3.021,True,False
+2025-07-19,Rainy season,2.4115,True,False
+2025-07-20,Rainy season,1.5715,True,False
+2025-07-21,Rainy season,2.073,True,False
+2025-07-22,Rainy season,8.423,True,False
+2025-07-23,Rainy season,4.9605,True,False
+2025-07-24,Rainy season,6.403,True,False
+2025-07-25,Rainy season,7.7805,True,False
+2025-07-27,Rainy season,2.4615,True,False
+2025-07-30,Rainy season,2.2085,True,False
+2025-08-03,Rainy season,5.565,True,False
+2025-08-05,Rainy season,0.299,False,False
+2025-08-07,Rainy season,2.3255,True,False
+2025-08-11,Rainy season,1.4595,True,False
+2025-08-12,Rainy season,1.884,True,False
+2025-08-13,Rainy season,1.1565,False,False
+2025-08-14,Rainy season,1.232,False,False
+2025-08-15,Rainy season,2.9795,True,False
+2025-08-16,Rainy season,1.4555,True,False
+2025-08-17,Rainy season,4.725,True,False
+2025-08-18,Rainy season,2.4805,True,False
+2025-08-19,Rainy season,2.1855,True,False
+2025-08-20,Rainy season,2.3505,True,False
+2025-08-21,Rainy season,0.6195,False,False
+2025-08-22,Rainy season,5.3955,True,False
+2025-08-23,Rainy season,1.097,False,False
+2025-08-24,Rainy season,3.139,True,False
+2025-08-25,Rainy season,2.382,True,False
+2025-08-26,Rainy season,0.585,False,False
+2025-08-27,Rainy season,2.2895,True,False
+2025-08-28,Rainy season,1.3585,True,False
+2025-08-29,Rainy season,3.206,True,False
+2025-08-30,Rainy season,2.593,True,False
+2025-08-31,Rainy season,4.0525,True,False
+2025-09-01,Rainy season,3.098,True,False
+2025-09-02,Rainy season,0.8165,False,False
+2025-09-03,Rainy season,0.837,False,False
+2025-09-04,Rainy season,3.6275,True,False
+2025-09-05,Rainy season,1.732,True,False
+2025-09-06,Rainy season,2.4505,True,False
+2025-09-07,Rainy season,3.904,True,False
+2025-09-08,Rainy season,1.1045,False,False
+2025-09-12,Rainy season,1.6055,True,False
+2025-09-14,Rainy season,1.99,True,False
+2025-09-15,Rainy season,1.446,True,False
+2025-09-16,Rainy season,3.9195,True,False
+2025-09-17,Rainy season,6.818,True,False
+2025-09-18,Rainy season,0.679,False,False
+2025-09-19,Rainy season,2.3865,True,False
+2025-09-20,Rainy season,1.748,True,False
+2025-09-21,Rainy season,4.4415,True,False
+2025-09-22,Rainy season,1.496,True,False
+2025-09-23,Rainy season,1.671,True,False
+2025-09-24,Rainy season,1.739,True,False
+2025-09-27,Rainy season,2.1375,True,False
+2025-09-28,Rainy season,3.899,True,False
+2025-09-29,Rainy season,2.6255,True,False
+2025-09-30,Rainy season,2.435,True,False
+2025-10-01,October,2.2345,True,False
+2025-10-02,October,2.824,True,False
+2025-10-03,October,2.904,True,False
+2025-10-04,October,2.7145,True,False
+2025-10-05,October,3.8455,True,False
+2025-10-06,October,0.5155,False,False
+2025-10-07,October,4.72,True,False
+2025-10-08,October,1.4385,True,False
+2025-10-09,October,0.0,False,False
+2025-10-10,October,2.936,True,False
+2025-10-11,October,0.5665,False,False
+2025-10-12,October,5.0225,True,False
+2025-10-13,October,0.97,False,False
+2025-10-14,October,1.106,False,False
+2025-10-15,October,3.473,True,False
+2025-10-16,October,1.0125,False,False
+2025-10-17,October,1.935,True,False
+2025-10-18,October,2.742,True,False
+2025-10-19,October,1.113,False,False
+2025-10-20,October,2.7255,True,False
+2025-10-21,October,3.214,True,False
+2025-10-22,October,1.47,True,False
+2025-10-23,October,2.404,True,False
+2025-10-24,October,0.14,False,False
+2025-10-25,October,2.1215,True,False
+2025-10-26,October,4.533,True,False
+2025-10-27,October,3.0285,True,False
+2025-10-29,October,2.3055,True,False
+2025-10-30,October,0.328,False,False
+2025-10-31,October,0.859,False,False
+2025-11-01,Dry season,2.0785,True,False
+2025-11-02,Dry season,4.433,True,False
+2025-11-03,Dry season,2.457,True,False
+2025-11-04,Dry season,1.8975,True,False
+2025-11-05,Dry season,0.0,False,False
+2025-11-06,Dry season,0.0,False,False
+2025-11-07,Dry season,0.0,False,False
+2025-11-08,Dry season,1.072,False,False
+2025-11-09,Dry season,2.26,True,False
+2025-11-10,Dry season,0.4285,False,False
+2025-11-11,Dry season,4.2165,True,False
+2025-11-12,Dry season,0.8565,False,False
+2025-11-13,Dry season,2.107,True,False
+2025-11-14,Dry season,0.6025,False,False
+2025-11-15,Dry season,2.7505,True,False
+2025-11-16,Dry season,2.1335,True,False
+2025-11-17,Dry season,0.5325,False,False
+2025-11-18,Dry season,0.768,False,False
+2025-11-19,Dry season,0.223,False,False
+2025-11-20,Dry season,0.0,False,False
+2025-11-21,Dry season,1.2125,False,False
+2025-11-22,Dry season,0.0,False,False
+2025-11-23,Dry season,3.7865,True,False
+2025-11-24,Dry season,0.067,False,False
+2025-11-25,Dry season,1.7465,True,False
+2025-11-26,Dry season,0.676,False,False
+2025-11-27,Dry season,1.206,False,False
+2025-11-28,Dry season,2.0845,True,False
+2025-11-29,Dry season,0.3715,False,False
+2025-11-30,Dry season,1.001,False,False

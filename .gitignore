@@ -1,0 +1,14 @@
+# Python and Jupyter working files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.virtual_documents/
+*.egg-info/
+.venv/
+
+# Per-client execution logs (large, regenerated at every run). The verification
+# logs at the root of resultats/ stay under version control on purpose.
+resultats/logs/
+
+.DS_Store
+launch_jupyter.sh
