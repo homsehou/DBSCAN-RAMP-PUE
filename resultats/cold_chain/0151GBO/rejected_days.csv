@@ -1,0 +1,71 @@
+day,reason,missing_slots
+2024-11-29,fewer than 90 valid slots,58
+2024-12-02,fewer than 90 valid slots,22
+2024-12-03,fewer than 90 valid slots,19
+2024-12-04,fewer than 90 valid slots,9
+2024-12-05,fewer than 90 valid slots,29
+2024-12-06,fewer than 90 valid slots,8
+2024-12-07,fewer than 90 valid slots,14
+2024-12-08,fewer than 90 valid slots,8
+2024-12-13,gap of 3+ slots,5
+2025-01-01,fewer than 90 valid slots,11
+2025-01-02,gap of 3+ slots,6
+2025-01-03,fewer than 90 valid slots,9
+2025-01-04,fewer than 90 valid slots,8
+2025-01-05,fewer than 90 valid slots,20
+2025-01-15,fewer than 90 valid slots,29
+2025-01-26,fewer than 90 valid slots,17
+2025-01-27,fewer than 90 valid slots,30
+2025-02-02,fewer than 90 valid slots,16
+2025-02-04,fewer than 90 valid slots,9
+2025-02-05,fewer than 90 valid slots,9
+2025-02-06,fewer than 90 valid slots,7
+2025-02-08,fewer than 90 valid slots,57
+2025-02-09,gap of 3+ slots,6
+2025-02-10,fewer than 90 valid slots,14
+2025-02-15,fewer than 90 valid slots,7
+2025-02-16,fewer than 90 valid slots,11
+2025-02-23,fewer than 90 valid slots,7
+2025-02-24,fewer than 90 valid slots,7
+2025-03-06,gap of 3+ slots,5
+2025-03-10,gap of 3+ slots,3
+2025-03-11,fewer than 90 valid slots,42
+2025-03-14,fewer than 90 valid slots,8
+2025-03-15,fewer than 90 valid slots,12
+2025-03-20,fewer than 90 valid slots,7
+2025-03-24,fewer than 90 valid slots,15
+2025-03-26,fewer than 90 valid slots,8
+2025-03-28,fewer than 90 valid slots,22
+2025-03-30,fewer than 90 valid slots,8
+2025-04-01,fewer than 90 valid slots,12
+2025-04-02,fewer than 90 valid slots,10
+2025-04-11,gap of 3+ slots,6
+2025-04-25,fewer than 90 valid slots,7
+2025-05-05,fewer than 90 valid slots,20
+2025-05-27,gap of 3+ slots,6
+2025-06-06,fewer than 90 valid slots,10
+2025-06-07,gap of 3+ slots,3
+2025-06-27,fewer than 90 valid slots,9
+2025-07-07,fewer than 90 valid slots,17
+2025-07-08,gap of 3+ slots,4
+2025-07-12,fewer than 90 valid slots,56
+2025-07-13,gap of 3+ slots,3
+2025-07-23,gap of 3+ slots,5
+2025-07-26,fewer than 90 valid slots,27
+2025-07-28,fewer than 90 valid slots,90
+2025-07-29,fewer than 90 valid slots,31
+2025-07-31,fewer than 90 valid slots,34
+2025-08-01,fewer than 90 valid slots,54
+2025-08-02,fewer than 90 valid slots,32
+2025-08-03,fewer than 90 valid slots,7
+2025-08-04,fewer than 90 valid slots,30
+2025-08-05,fewer than 90 valid slots,8
+2025-08-06,fewer than 90 valid slots,16
+2025-08-08,fewer than 90 valid slots,15
+2025-08-09,fewer than 90 valid slots,44
+2025-08-10,fewer than 90 valid slots,25
+2025-08-12,fewer than 90 valid slots,10
+2025-09-09,fewer than 90 valid slots,17
+2025-09-10,fewer than 90 valid slots,15
+2025-09-11,gap of 3+ slots,4
+2025-09-13,fewer than 90 valid slots,40
