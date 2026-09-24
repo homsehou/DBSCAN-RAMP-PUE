@@ -1,4 +1,4 @@
-# DBSCAN-RAMP-PUE-v5
+# DBSCAN-RAMP-PUE V3
 
 Load profile modelling of productive uses of electricity (PUE) on two rural mini-grids in
 Benin (Samionta and Gbowele). Smart-meter series of nine appliances (four cold-chain
@@ -66,8 +66,8 @@ they are the labels of the published results and of the method guides.
 
 ```
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m ipykernel install --user --name dbscan-ramp-pue-v5 \
-    --display-name "Python (DBSCAN-RAMP-PUE-V5)"   # kernel named in the notebooks
+.venv/bin/python -m ipykernel install --user --name dbscan-ramp-pue-v3-github \
+    --display-name "Python (DBSCAN-RAMP-PUE V3, GitHub)"   # kernel named in the notebooks
 .venv/bin/jupyter lab                       # notebooks in the browser
 .venv/bin/python src/run.py --prefix rejeu/ # whole chain, results in resultats/rejeu/
 ```
