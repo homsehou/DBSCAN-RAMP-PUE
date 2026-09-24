@@ -1,15 +1,14 @@
 """Step 2: targets to calibrate, days retained by DBSCAN and sampling noise of each target.
 
-A target is a client, a season (or a calendar month with GRAIN=mois) and a fleet configuration:
-  - fleet: before or since the change of appliances, at the date seen at the meter; the
-    incubator 0152GBO is calibrated only during its period of operation;
-  - out-of-service periods (at least 21 consecutive days without running) are removed and never
-    calibrated; an isolated day without running stays in the target (occasional use);
-  - DBSCAN flags atypical days among the running days, in a space made of three principal
+Target: one client, one season (or one calendar month with GRAIN=mois) and one fleet configuration.
+  - Fleet: before or since the change of appliances, at the date seen at the meter; calibration
+    of the incubator 0152GBO over its operating period only.
+  - Removal of the out-of-service periods (at least 21 consecutive days without running), never
+    calibrated; isolated days without running kept in the target (occasional use).
+  - DBSCAN search of atypical days among the running days, in a space of three principal
     components of the daily shape and six bounded descriptors, with the radius at the knee of
-    the sorted distances to the 4th neighbour; if the flagged days carry more than 10 % of the
-    energy, they are kept;
-  - sampling noise by a bootstrap of blocks of 7 consecutive days: mean and 95th percentile of
+    the sorted distances to the 4th neighbour; flagged days kept above 10 % of the energy.
+  - Sampling noise by a bootstrap of blocks of 7 consecutive days: mean and 95th percentile of
     the gap of a perfect model for the ten criteria and the local shape, local standard
     deviations and 90 % band.
 
@@ -29,19 +28,20 @@ from sklearn.preprocessing import StandardScaler
 import settings as S
 import validation as V
 
+# Grain of the targets and output folders
 OUT = S.TARGETS
-GRAIN = os.environ.get("GRAIN", "saison")      # "mois": one target per calendar month
+GRAIN = os.environ.get("GRAIN", "saison")      # "mois" for one target per calendar month
 for d in (f"clusters_{GRAIN}", f"bruit_{GRAIN}"):
     (OUT / d).mkdir(exist_ok=True)
 SLOTS = [f"slot_{i}" for i in range(S.SLOTS_PER_DAY)]
-NEAR_ZERO_KWH = 0.05    # daily energy below which a target is left uncalibrated
-MAX_FLAGGED_SHARE = 0.10  # energy share of the flagged days above which they are kept
+NEAR_ZERO_KWH = 0.05    # daily energy of a target too small for a calibration
+MAX_FLAGGED_SHARE = 0.10  # energy share of the flagged days, threshold for keeping all of them
 DRAWS = 200             # bootstrap means per use (band, then perfect model)
 BLOCK = 7               # consecutive days per bootstrap block
 
 
 def configuration(client, day):
-    """Fleet of the day, or state of the incubator."""
+    """Fleet configuration of a day, or state of the incubator."""
     if client in S.FLEET_CHANGE:
         d = S.FLEET_CHANGE[client]
         return f"avant {d}" if day < d else f"depuis {d}"
@@ -52,7 +52,8 @@ def configuration(client, day):
 
 
 def out_of_service(days, peak, threshold):
-    """True for the days of a period of at least 21 days without running."""
+    """Flag of the days belonging to a period of at least 21 days without running."""
+    # Runs of consecutive days with the same running state, and their span in days
     j = pd.to_datetime(pd.Series(days))
     running = pd.Series(peak >= threshold)
     run = (running != running.shift()).cumsum()
@@ -88,14 +89,17 @@ def neighbour_distances(F):
 
 
 def knee_radius(d):
-    """Radius at the knee of the sorted curve: the point farthest below the chord."""
+    """Radius at the knee of the sorted curve, the point farthest below the chord."""
     x = np.linspace(0, 1, len(d))
     y = (d - d[0]) / max(d[-1] - d[0], 1e-12)
     return float(d[np.argmax(x - y)])
 
 
 def dbscan(X, radius="knee"):
-    """DBSCAN labels (-1 for an atypical day) and the radius used."""
+    """DBSCAN labels, -1 for an atypical day, and the radius in use.
+
+    radius: "knee" for the automated radius, or a percentile of the distances for the
+    sensitivity table."""
     if len(X) <= S.DBSCAN_MIN_SAMPLES:
         return np.zeros(len(X), int), np.nan
     F = feature_space(X)
@@ -112,11 +116,11 @@ def block_draw(n, rng):
 
 
 def noise(Vd, peaks, rng):
-    """Sampling noise of a target whose days are sorted by date.
+    """Sampling noise of a target, with its days sorted by date.
 
-    The first 200 bootstrap means give the local standard deviations of the smoothed residual
-    (one and two hours) and the 90 % band; the next 200 play the perfect model: the mean and
-    95th percentile of its gap to the target, for every criterion.
+    First 200 bootstrap means: local standard deviations of the smoothed residual (one and two
+    hours) and 90 % band. Next 200: role of the perfect model, with the mean and the 95th
+    percentile of its gap to the target for every criterion.
     """
     y = Vd.mean(axis=0)
     amp = max(float(np.ptp(y)), 1e-9)
@@ -138,9 +142,11 @@ def periods(days, flag):
     return [(days[g.index[0]], days[g.index[-1]], len(g)) for _, g in s[s].groupby(run[s])]
 
 
+# Targets of every client, one seed for the whole bootstrap
 rng = np.random.default_rng(20260919)
 summary, sensitivity, stops = [], [], []
 for client, family in S.CLIENTS.items():
+    # Running state, out-of-service periods and fleet configuration of each day
     jr = pd.read_csv(OUT / "journees" / f"{client}.csv").sort_values("jour").reset_index(drop=True)
     X_all = jr[SLOTS].to_numpy(float)
     peak = X_all.max(axis=1)
@@ -153,11 +159,13 @@ for client, family in S.CLIENTS.items():
         e = X_all[(jr.jour >= start) & (jr.jour <= end)].sum(axis=1).mean() * 0.25 / 1000
         stops.append({"client": client, "debut": start, "fin": end, "journees": n,
                       "kWh_j": round(float(e), 3)})
+    # Period of each day (season or month), then one target per period and configuration
     period_of = S.season_of_month if GRAIN == "saison" else (lambda m: S.MONTHS[int(str(m)[5:7]) - 1])
     jr["saison"] = jr["mois"].map(period_of)
     jr["cible"] = [s if c == "" else f"{s} | {c}" for s, c in zip(jr.saison, jr.config)]
     jr["cluster"], jr["retenue"], jr["moitie"] = -2, False, -1
     for target, block in jr.groupby("cible"):
+        # Days in service of the target, and its identity card
         service = block[~block.hors_service]
         X = service[SLOTS].to_numpy(float)
         row = {"client": client, "famille": family, "cible": target,
@@ -168,9 +176,9 @@ for client, family in S.CLIENTS.items():
         if len(service) == 0:
             summary.append({**row, "jours_retenus": 0, "statut": "hors service"})
             continue
-        # DBSCAN on the running days only: the days without running, all close to zero, would
-        # otherwise form the main group and turn every day of use into an outlier. They stay in
-        # the target (occasional use), with the label -3.
+        # DBSCAN on the running days only. Reason: days without running, all close to zero, as
+        # the main group otherwise, with every day of use left as an outlier. Days without
+        # running kept in the target (occasional use), with the label -3.
         active = service.marche.to_numpy()
         lab = np.full(len(X), -3)
         lab[active], eps = dbscan(X[active])
@@ -178,6 +186,7 @@ for client, family in S.CLIENTS.items():
         flagged_share = float(E[lab == -1].sum() / max(E.sum(), 1e-9))
         kept_all = flagged_share > MAX_FLAGGED_SHARE
         retained = np.ones(len(X), bool) if kept_all else lab != -1
+        # Sensitivity of the flagged share and of the energy bias to the radius
         for r in ("knee", 80, 90, 95):
             l2 = np.full(len(X), -3)
             l2[active], e2 = dbscan(X[active], r)
@@ -185,6 +194,7 @@ for client, family in S.CLIENTS.items():
                                 "rayon": "coude" if r == "knee" else r, "eps": e2,
                                 "part_ecartee": float(np.mean(l2[active] == -1)) if active.any() else 0.0,
                                 "biais_E_pct": 100 * (E[l2 != -1].mean() / max(E.mean(), 1e-9) - 1)})
+        # Retained days, their daily energy and the status of the target
         Vd = X[retained]
         kwh = float(Vd.mean(axis=0).sum() * 0.25 / 1000) if len(Vd) else 0.0
         jr.loc[service.index, "cluster"] = lab
@@ -203,6 +213,7 @@ for client, family in S.CLIENTS.items():
                     "biais_E_pct": round(100 * (kwh / max(E.mean() * 0.25 / 1000, 1e-9) - 1), 2),
                     "part_marche": round(float(service.marche[retained].mean()), 3),
                     "statut": status})
+        # Marked peaks and sampling noise, for the targets to calibrate only
         if status == "a calibrer":
             peaks = V.robust_peaks(Vd)
             mean_gap, p95, arrays = noise(Vd, peaks, rng)
@@ -213,6 +224,7 @@ for client, family in S.CLIENTS.items():
         summary.append(row)
     jr.drop(columns=SLOTS).to_csv(OUT / f"clusters_{GRAIN}" / f"{client}.csv", index=False)
 
+# Tables of the targets, of the DBSCAN sensitivity and of the out-of-service periods
 t = pd.DataFrame(summary)
 t.to_csv(OUT / f"cibles_{GRAIN}.csv", index=False)
 pd.DataFrame(sensitivity).to_csv(OUT / f"dbscan_sensibilite_{GRAIN}.csv", index=False)

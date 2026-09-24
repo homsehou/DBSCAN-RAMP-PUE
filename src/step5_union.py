@@ -1,8 +1,8 @@
 """Step 5: union of the two calibration settings, the best version of each seasonal target.
 
-The runs compete target by target, judged by the same J as the calibration (without the
-peak-time term), on the profile of the check seeds. The files of the winning version are copied
-into the union folder, which is therefore a complete run.
+Competition of the runs target by target, on the same J as the calibration (without the
+peak-time term) and on the profile of the check seeds. Copy of the files of the winning version
+into the union folder, hence a complete run of its own.
 
 Usage: python step5_union.py <union folder> <run> <run> [<run> ...]   (folders inside resultats/)
 Output: the union folder and its table bilan_union.csv
@@ -16,6 +16,7 @@ import settings as S
 import validation as V
 import calibration as K
 
+# Union folder, competing runs and targets
 UNION = S.RESULTS / sys.argv[1]
 RUNS = [S.RESULTS / n for n in sys.argv[2:]]
 for d in ("entrees_ramp", "planches", "finalistes"):
@@ -25,6 +26,7 @@ rows = []
 
 for path in sorted(RUNS[0].glob("*.json")):
     name = path.stem
+    # Judge of the target, then J of each run on its simulated profile
     noise = dict(np.load(S.TARGETS / "bruit_saison" / f"{name}.npz"))
     r = targets.loc[name]
     p95 = {k[4:]: float(r[k]) for k in r.index if k.startswith("p95_")}
@@ -32,6 +34,7 @@ for path in sorted(RUNS[0].glob("*.json")):
              "seuils": V.local_thresholds(p95)}
     scores = {run: K.objective(noise["cible"], np.load(run / f"{name}_profil.npy"), judge) for run in RUNS}
     winner = min(scores, key=scores.get)
+    # Row of the summary table, then copy of every file of the winner
     j = json.load(open(winner / f"{name}.json"))
     rows.append({"cible": name, "essai": winner.name, "J": round(scores[winner], 3),
                  **{f"J_{run.name}": round(s, 3) for run, s in scores.items()},
@@ -44,6 +47,7 @@ for path in sorted(RUNS[0].glob("*.json")):
         if (winner / f).exists():
             shutil.copy2(winner / f, UNION / f)
 
+# Summary table and key figures of the union
 summary = pd.DataFrame(rows)
 summary.to_csv(UNION / "bilan_union.csv", index=False)
 print(summary.essai.value_counts().to_string())

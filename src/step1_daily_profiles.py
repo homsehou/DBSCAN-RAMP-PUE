@@ -1,14 +1,13 @@
-"""Step 1: meter series of each client turned into complete days of 96 slots.
+"""Step 1: conversion of the meter series of each client into complete days of 96 slots.
 
-Cleaning rule, in this order:
-  - integration periods longer than 15 minutes are discarded;
-  - slots where the voltage collapses below 200 V are left empty, since the power is unknown
-    there, not zero;
-  - a gap of at most 30 minutes (two slots) is filled by linear interpolation;
-  - a longer gap is never filled nor set to zero: the day that contains it is rejected;
-  - the study starts at the commissioning of the site, or at the arrival of the appliance
-    when it came later;
-  - a day rejected at every client of a site is flagged as a site-wide rejection.
+Cleaning rules, in this order:
+  - removal of the integration periods longer than 15 minutes;
+  - empty slots under a voltage below 200 V, the power being unknown there, not zero;
+  - linear interpolation of the gaps of at most 30 minutes (two slots);
+  - no filling and no zero for a longer gap: rejection of the whole day;
+  - start of the study at the commissioning of the site, or at the arrival of the appliance
+    when later;
+  - flag of site-wide rejection for a day rejected at every client of the same site.
 
 Outputs in resultats/cibles_v9/:
   journees/<client>.csv          one row per retained day, 96 slot columns
@@ -20,10 +19,11 @@ import numpy as np
 import pandas as pd
 import settings as S
 
+# Output folders of the daily profiles and of the registers
 OUT = S.TARGETS
 for d in ("journees", "registres"):
     (OUT / d).mkdir(parents=True, exist_ok=True)
-LOCAL = "Etc/GMT-1"                    # Benin time, UTC+1
+LOCAL = "Etc/GMT-1"                    # Benin time zone, UTC+1
 BEFORE_START = "avant le debut d'etude"
 
 
@@ -34,7 +34,7 @@ def study_start(client):
 
 
 def fill_short_gaps(grid):
-    """Gaps of at most 30 minutes filled by interpolation; longer gaps left empty."""
+    """Interpolation of the gaps of at most 30 minutes, longer gaps left empty."""
     limit = S.GAP_MAX_MIN // S.SLOT_MIN
     gap = grid.isna()
     length = gap.groupby((gap != gap.shift()).cumsum()).transform("sum")
@@ -43,20 +43,23 @@ def fill_short_gaps(grid):
 
 def client_days(client):
     """Retained days of a client, and the register of every day with the reason of a rejection."""
+    # Meter series in local time, without long integration periods nor duplicates
     d = pd.read_csv(S.DATA / S.CLIENTS[client] / client / f"{client}.csv", low_memory=False)
     d["t"] = pd.to_datetime(d["t"], utc=True).dt.tz_convert(LOCAL)
     d = d[(d["duree_s"].isna()) | (d["duree_s"] <= S.PERIOD_MAX_S)]
     d = d.sort_values("t").drop_duplicates(subset="t").set_index("t")
     p = pd.to_numeric(d["true_power_avg"], errors="coerce")
     v = pd.to_numeric(d["voltage_avg"], errors="coerce")
-    # Period without supply: the power is unknown there, so it is removed rather than read as zero
+    # Removal of the periods without supply: unknown power there, not a zero power
     off = v.notna() & (v < S.VOLTAGE_OUT)
     p = p.mask(off)
+    # 15-minute grid, then interpolation of the short gaps only
     grid = p.resample(f"{S.SLOT_MIN}min").mean()
     off_slots = off.resample(f"{S.SLOT_MIN}min").max().fillna(False)
     filled = fill_short_gaps(grid)
     start = study_start(client)
     days, register = [], []
+    # Day-by-day decision, with the reason of each rejection kept in the register
     for day, block in filled.groupby(filled.index.normalize()):
         b = block.reindex(pd.date_range(day, periods=S.SLOTS_PER_DAY,
                                         freq=f"{S.SLOT_MIN}min", tz=LOCAL))
@@ -87,11 +90,12 @@ def client_days(client):
     return pd.DataFrame(days, columns=cols), pd.DataFrame(register)
 
 
+# Daily profiles and register of every client
 days, registers = {}, {}
 for client in S.CLIENTS:
     days[client], registers[client] = client_days(client)
 
-# Days rejected at every studied client of the same site on the same date
+# Flag of the days rejected at every studied client of the same site on the same date
 for site in ("SAM", "GBO"):
     clients = [c for c in S.CLIENTS if c.endswith(site)]
     tab = pd.concat([registers[c] for c in clients])
@@ -102,6 +106,7 @@ for site in ("SAM", "GBO"):
         r["rejet_commun_site"] = (~r.garde & (r.motif != BEFORE_START)
                                   & r.jour.map(common).eq(True))
 
+# Files per client, monthly summary and progress line
 summary = []
 for client, family in S.CLIENTS.items():
     dy, reg = days[client], registers[client]

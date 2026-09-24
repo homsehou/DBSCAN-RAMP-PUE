@@ -1,12 +1,11 @@
 """Calibration plate of one target: criteria banner, profile, windows and ranges, gap against
 the noise of the mean, load duration curve and harmonics.
 
-p is the result of one target (JSON written by step 4): client, target, windows, cycles,
-nameplates, global settings, criteria, local shape, p95, verdict, realism, and the simulated
-profile (key "profil"). noise is the file bruit_<grain>/<target>.npz of step 2 (target, 90 %
-band, peaks).
+Inputs: p, result of one target (JSON of step 4) with client, target, windows, cycles,
+nameplates, global settings, criteria, local shape, p95, verdict, realism and simulated profile
+(key "profil"); noise, file bruit_<grain>/<target>.npz of step 2 (target, 90 % band, peaks).
 
-The text of the figures stays in French, as in the published results and the method guides.
+Text of the figures in French, as in the published results and the method guides.
 Format: 10 x 10.4 inches, PNG at 150 dpi and PDF; fonts from 11 to 15 pt; decimal comma.
 """
 import numpy as np
@@ -17,6 +16,7 @@ from matplotlib.ticker import FuncFormatter
 import settings as S
 import validation as V
 
+# Style, colours and French labels of the plates
 STYLE = {"font.size": 12, "axes.titlesize": 14, "axes.labelsize": 13,
          "xtick.labelsize": 12, "ytick.labelsize": 12, "legend.fontsize": 12,
          "figure.titlesize": 15, "axes.spines.top": False, "axes.spines.right": False,
@@ -67,6 +67,7 @@ def banner(ax, p):
     ax.set_axis_off()
     ax.set_xlim(0, 5)
     ax.set_ylim(0, 3)
+    # Ten criteria and three local shape measures, green when met, red otherwise
     limits = {k: V.threshold(k, p["p95"]) for k in V.THRESHOLDS}
     limits.update(V.local_thresholds(p["p95"]))
     values = {**p["mesures"], **p["locale"]}
@@ -76,6 +77,7 @@ def banner(ax, p):
         sign = "+" if k in ("err_E_pct", "err_P_pct") and values[k] > 0 else ""
         box(ax, i % 5, 2 - i // 5, NAMES[k], f"{sign}{comma(values[k] * factor)}{u} "
             f"{'≤' if met else '>'} {comma(limits[k] * factor)}", OK if met else KO)
+    # Verdict and daily peak, simulated against measured
     text, colour = VERDICT[p["verdict"]]
     box(ax, 3, 0, "Verdict", text, colour)
     r = p.get("realisme", {})
@@ -95,6 +97,7 @@ def plate(p, noise):
     with plt.rc_context(STYLE):
         fig = plt.figure(figsize=(10, 10.4), layout="constrained")
         gs = fig.add_gridspec(5, 2, height_ratios=[1.6, 3.0, 0.8, 1.2, 1.9])
+        # Title: client, family, period, days, nameplate and number of criteria met
         period, _, config = p["cible"].partition(" | ")
         met = sum(abs(p["mesures"][k]) <= V.threshold(k, p["p95"]) for k in V.THRESHOLDS)
         plates = " + ".join(watts(q) for q in p["plaques_appareils"])
@@ -176,7 +179,7 @@ def plate(p, noise):
 
 
 def save(fig, path):
-    """PNG at 150 dpi and vector PDF, then the figure is closed."""
+    """Export of a figure as PNG at 150 dpi and vector PDF, then closing of the figure."""
     fig.savefig(str(path) + ".png", dpi=150)
     fig.set_layout_engine("none")          # layout already computed at the first export
     fig.savefig(str(path) + ".pdf")

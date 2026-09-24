@@ -1,12 +1,12 @@
-"""Step 9: what transfers from one appliance to another.
+"""Step 9: transferable parameters from one appliance to another.
 
-For each retained parameter, this step separates what comes from the type of appliance from what
-comes from the client. The measure is the share of variance carried by the client within a family:
+Separation, for each retained parameter, of the part due to the type of appliance and the part due
+to the client. Measure: share of variance carried by the client within a family,
 
     share = var(means per client) / (var(means per client) + mean of the within-client variances)
 
-Close to 0, the parameter depends only on the family and the season, so it transfers.
-Close to 1, it belongs to the client, so it has to be measured or surveyed.
+Close to 0: parameter tied to the family and the season only, hence transferable.
+Close to 1: parameter of the client, hence to be measured or surveyed.
 
 Usage: python step9_transfer.py <reference> [--grain saison|mois]   (folder inside resultats/)
 Outputs in resultats/<reference>/publication/tableaux/:
@@ -25,6 +25,7 @@ import pandas as pd
 import settings as S
 import publication_figures as F
 
+# Reference folder, grain and output folders
 parser = argparse.ArgumentParser()
 parser.add_argument("reference")
 parser.add_argument("--grain", default="saison", choices=["saison", "mois"])
@@ -34,6 +35,7 @@ OUT = REFERENCE / "publication" / "tableaux"
 OUT.mkdir(parents=True, exist_ok=True)
 (REFERENCE / "publication" / "figures").mkdir(parents=True, exist_ok=True)
 
+# French names of the parameters, and the two groups compared in the tables
 PARAMETER_NAMES = {"func_cycle": "Durée de marche (func_cycle)", "L_etoile": "Période du cycle",
                    "debut_h": "Début de fenêtre", "fin_h": "Fin de fenêtre",
                    "etendue_h": "Étendue des fenêtres", "part_ft": "Part de func_time",
@@ -170,6 +172,7 @@ def table_sheet(b):
     return pd.DataFrame(rows)
 
 
+# Parameter table, variance shares and transfer figure
 b = read()
 b.to_csv(OUT / "transfert_parametres.csv", index=False)
 variance = table_variance(b)
@@ -179,11 +182,13 @@ F.write_table(variance, OUT, "transfert_variance", "Part de variance portée par
 F.write_table(table_settings(b), OUT, "transfert_reglages", "Réglage le plus courant par type d'équipement, et sa fréquence")
 F.write_table(table_levels(b), OUT, "transfert_niveaux", "Niveau d'usage, client par client")
 
+# Quality per type and RAMP input sheet per type
 targets = pd.read_csv(S.TARGETS / f"cibles_{args.grain}.csv")
 targets = targets[targets.statut == "a calibrer"]
 F.write_table(table_quality(b, targets), OUT, "type_qualite", "Qualité de la calibration par type de PUE")
 F.write_table(table_sheet(b), OUT, "type_fiche", "Fiche de saisie RAMP par type : valeur retenue, et plage observée")
 
+# Console summary: variance shares and spread of the daily energy between clients
 print(F.markdown(variance))
 print()
 for f, g in b.groupby("famille"):

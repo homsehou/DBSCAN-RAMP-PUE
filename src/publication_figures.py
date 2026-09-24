@@ -3,11 +3,11 @@
 Differences with the working plates:
   - width set to the double column of journals (7.16 inches), 8 pt font at final size, vector
     PDF with embedded fonts and PNG at 600 dpi;
-  - no green and red banner: the criteria go into a table, the figure shows the data;
+  - no green and red banner: criteria in a table, data only in the figure;
   - colour-blind safe colours (Okabe-Ito), measurement in neutral grey and model in blue,
     never colour alone to carry information;
-  - residuals relative to the standard deviation of the noise, so comparable between targets.
-The text of the figures stays in French, as in the published results and the method guides.
+  - residuals relative to the standard deviation of the noise, hence comparable between targets.
+Text of the figures in French, as in the published results and the method guides.
 
 Figures:
   figure_target(p, noise)            profile and residuals of one target
@@ -16,7 +16,7 @@ Figures:
   figure_floor(targets)              floor of the perfect model against the number of days
   figure_observed_floor(summary)     observed gap against floor, per criterion
   figure_parameters(ps, title)       retained RAMP parameters, per season
-  figure_transfer(variance, levels)  what transfers from one appliance to another
+  figure_transfer(variance, levels)  transferable parameters from one appliance to another
 """
 import numpy as np
 import matplotlib
@@ -28,7 +28,7 @@ import settings as S
 # Standard journal widths, in inches
 COLUMN, DOUBLE = 3.46, 7.16
 
-# Okabe-Ito colours: enough separation for colour-vision deficiencies
+# Okabe-Ito colours, with enough separation for colour-vision deficiencies, and plot style
 BLUE, ORANGE, GREEN, VERMILION, PINK = "#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7"
 MEASURED, AREA, NOISE, SHADE = "#3D3D3D", "#E8E8E6", "#C9C9C6", "#9A9A96"
 CYCLES = [BLUE, ORANGE, GREEN]
@@ -48,6 +48,7 @@ STYLE = {
     "savefig.bbox": "tight", "savefig.pad_inches": 0.02,
     "pdf.fonttype": 42, "ps.fonttype": 42,
 }
+# French names of the criteria and of the families, short names of the seasons
 NAMES = {"NRMSE": "NRMSE", "LDC_err": "Courbe classée", "FFT_err": "Harmoniques",
          "err_E_pct": "Énergie", "err_P_pct": "Pointe", "err_LF": "Facteur de charge",
          "CORR_h": "Corrélation horaire", "TVD_h": "Distance horaire",
@@ -61,8 +62,8 @@ SHORT = {"Saison seche": "sèche", "Mai": "mai", "Saison des pluies": "pluies", 
 def period_rank(name):
     """Chronological rank of a season or a month, to sort the targets.
 
-    May and October are both months and seasons: they keep their month rank, and the two long
-    seasons fit in between (dry season first, rainy season after May)."""
+    May and October as both months and seasons: rank of the month for them, and the two long
+    seasons in between (dry season first, rainy season after May)."""
     if name == "Saison seche":
         return -1
     if name == "Saison des pluies":
@@ -102,7 +103,7 @@ def _profile(ax, target, sim, noise, peaks, legend=True):
     ax.fill_between(h, 0, step(target), step="post", color=AREA, lw=0, zorder=0)
     ax.step(h, step(target), where="post", color=MEASURED, lw=1.2, zorder=3, label="mesure")
     ax.step(h, step(sim), where="post", color=BLUE, lw=1.4, zorder=4, label="modèle RAMP")
-    # Top margin kept for the peak marks, so that they are never cut
+    # Top margin kept for the peak marks, against any cut of the marks
     top = max(target.max(), noise["haut"].max(), sim.max(), 1e-9)
     upper = top * (1.16 if len(peaks) else 1.06)
     if len(peaks):
@@ -139,6 +140,7 @@ def figure_target(p, noise, height=4.6):
         fig, (a, u, r) = plt.subplots(3, 1, figsize=(DOUBLE, height),
                                       height_ratios=[2.4, 0.34, 1], sharex=True,
                                       layout="constrained")
+        # Profile with its noise band, then the band of the windows and cycle ranges
         _profile(a, target, sim, noise, np.asarray(noise["pics"], int))
         a.set_ylabel("puissance (W)")
         a.set_title(target_title(p) + f", {p['jours_retenus']} journées", loc="left", pad=14)
@@ -163,7 +165,7 @@ def figure_target(p, noise, height=4.6):
 
 
 def short_title(p):
-    """Title of a panel when the client is already named: period and fleet only."""
+    """Title of a panel for a client already named: period and fleet only."""
     period, _, config = p["cible"].partition(" | ")
     name = SHORT.get(period, period.lower()).replace("fevrier", "février").replace("aout", "août")
     name = name.replace("decembre", "décembre")
@@ -179,6 +181,7 @@ def figure_multiples(ps, noises, columns=2, row_height=1.55, title=None):
     with plt.rc_context(STYLE):
         fig, axes = plt.subplots(rows, columns, figsize=(DOUBLE, row_height * rows),
                                  layout="constrained", squeeze=False)
+        # One panel per target, axis labels on the outer panels only
         for i, (p, noise) in enumerate(zip(ps, noises)):
             ax = axes[i // columns][i % columns]
             target, sim = np.asarray(noise["cible"], float), np.asarray(p["profil"], float)
@@ -192,6 +195,7 @@ def figure_multiples(ps, noises, columns=2, row_height=1.55, title=None):
             hour_axis(ax, every=6)
         for j in range(n, rows * columns):
             axes[j // columns][j % columns].set_axis_off()
+        # Empty panels hidden, one legend for the whole plate
         handles = [plt.Line2D([], [], color=MEASURED, lw=1.2), plt.Line2D([], [], color=BLUE, lw=1.4),
                    plt.Rectangle((0, 0), 1, 1, color=NOISE),
                    plt.Line2D([], [], color=VERMILION, marker="v", ls="none", ms=3.5)]
@@ -212,6 +216,7 @@ def figure_criteria(summary, keys=None):
     summary: table with one row per target, the columns of the criteria and of the thresholds
     (`seuil_<k>`), plus `famille`.
     """
+    # Gap / threshold of every target, criteria sorted by their median ratio
     keys = keys or list(NAMES)
     ratios = {k: (summary[k].abs() / summary[f"seuil_{k}"]).to_numpy() for k in keys}
     order = sorted(keys, key=lambda k: np.median(ratios[k]))
@@ -220,6 +225,7 @@ def figure_criteria(summary, keys=None):
         fig, ax = plt.subplots(figsize=(DOUBLE, 0.34 * len(keys) + 1.3), layout="constrained")
         ax.axvspan(1, 40, color="#F4F0EC", lw=0, zorder=0)
         ax.axvline(1, color=VERMILION, lw=1.0, zorder=1)
+        # One row per criterion: targets by family, median mark, count beyond the threshold
         for i, k in enumerate(order):
             v = np.clip(ratios[k], 0.025, 40)
             shift = np.linspace(-0.17, 0.17, len(v))
@@ -283,7 +289,7 @@ UNIT = {"NRMSE": " (%)", "LDC_err": " (%)", "FFT_err": " (%)", "err_E_pct": " (%
 
 
 def _as_percent(k, v):
-    """Values on a readable scale: percentage, or hours as they are."""
+    """Values on a readable scale: percentage, or hours unchanged."""
     if k == "ECART_PICS_h" or k in ("ELM_1h", "ELM_2h"):
         return v
     return v * (1.0 if k.endswith("_pct") else 100.0)
@@ -349,6 +355,7 @@ def figure_parameters(ps, title):
     with plt.rc_context(STYLE):
         fig, ((a, d), (b, c)) = plt.subplots(2, 2, figsize=(DOUBLE, 4.0), layout="constrained",
                                              width_ratios=[1.5, 1])
+        # Powers, then windows and cycle ranges of each period
         figure_powers(ps, d)
         for j, p in enumerate(ps):
             y = len(ps) - 1 - j
@@ -365,6 +372,7 @@ def figure_parameters(ps, title):
         a.grid(axis="y", visible=False)
         a.set_title("Fenêtres (gris) et plages des cycles", loc="left", fontsize=7.5)
 
+        # Duty cycle of each of the three cycles
         width = 0.26
         for k in range(3):
             d = [p["cycles"][k]["rapport_cyclique"] if k < len(p["cycles"]) else np.nan for p in ps]
@@ -379,6 +387,7 @@ def figure_parameters(ps, title):
                  columnspacing=0.8, handlelength=1.2)
         b.set_title("Part du temps en marche", loc="left", fontsize=7.5, pad=3)
 
+        # func_cycle, cycle period and func_time as a share of the day
         c.bar(np.arange(len(ps)) - 0.18, [p["func_cycle"] for p in ps], width=0.36,
               color=BLUE, lw=0, label="durée de marche")
         c.bar(np.arange(len(ps)) + 0.18, [p["L_etoile"] for p in ps], width=0.36,
@@ -399,7 +408,7 @@ def figure_parameters(ps, title):
 
 
 def figure_transfer(variance, levels):
-    """What transfers from one appliance to another.
+    """Transferable parameters from one appliance to another.
 
     variance: share of variance carried by the client, per parameter and per family
     (columns `parametre`, `porte par`, then one column per family).
@@ -411,6 +420,7 @@ def figure_transfer(variance, levels):
     with plt.rc_context(STYLE):
         fig, (a, b) = plt.subplots(1, 2, figsize=(DOUBLE, 3.2), layout="constrained",
                                    width_ratios=[1.7, 1])
+        # Left panel: share of variance carried by the client, per parameter and family
         a.axvspan(0.5, 1.0, color="#F4F0EC", lw=0, zorder=0)
         a.axvline(0.5, color=VERMILION, lw=1.0, zorder=1)
         width = 0.36
@@ -428,6 +438,7 @@ def figure_transfer(variance, levels):
         a.set_title("à gauche du trait : propriété de la machine ; à droite : de l'exploitant",
                     loc="left", fontsize=7.5, pad=3)
 
+        # Right panel: usage level of every target, in equivalent hours per day
         for i, (fam, g) in enumerate(levels.groupby("famille")):
             marker, colour = MARKERS.get(g.famille.iloc[0], ("o", BLUE))
             for j, (client, h) in enumerate(g.groupby("client")):
@@ -447,14 +458,14 @@ def figure_transfer(variance, levels):
 
 
 def save(fig, path):
-    """Vector PDF with embedded fonts and PNG at 600 dpi, then the figure is closed."""
+    """Export as vector PDF with embedded fonts and PNG at 600 dpi, then closing of the figure."""
     fig.savefig(str(path) + ".pdf")
     fig.savefig(str(path) + ".png")
     plt.close(fig)
 
 
 def markdown(t):
-    """Markdown table written without extra dependency: a header row, a separator row."""
+    """Markdown table without extra dependency: a header row, a separator row, then the rows."""
     columns = [str(c) for c in t.columns]
     rows = ["| " + " | ".join(columns) + " |", "|" + "|".join(["---"] * len(columns)) + "|"]
     for _, r in t.iterrows():

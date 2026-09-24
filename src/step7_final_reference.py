@@ -1,8 +1,8 @@
 """Step 7: final reference, the reference plus the gains of a run with a wider duration grid.
 
-Same rule as step 6: a target is replaced by the version of the run only if that version misses
-no new criterion, worsens neither NRMSE nor the worst one-hour smoothed gap (margin 0.005), and
-improves the harmonics (FFT) criterion. Targets absent from the run are copied as they are.
+Same rule as step 6: replacement of a target by the version of the run only with no new missed
+criterion, neither NRMSE nor the worst one-hour smoothed gap worse (margin 0.005), and a better
+harmonics (FFT) criterion. Unchanged copy of the targets absent from the run.
 
 Usage: python step7_final_reference.py <output> <reference> <run> [<run> ...]   (folders inside resultats/)
 Output: the output folder and its table bilan_reference.csv
@@ -13,17 +13,18 @@ import sys
 import pandas as pd
 import settings as S
 
+# Output folder, reference and runs in competition
 OUT = S.RESULTS / sys.argv[1]
 REFERENCE = S.RESULTS / sys.argv[2]
 RUNS = [S.RESULTS / n for n in sys.argv[3:]]
-SHAPE_MARGIN = 0.005
+SHAPE_MARGIN = 0.005          # margin on NRMSE and on the worst smoothed gap (absolute)
 
 for d in ("entrees_ramp", "planches", "finalistes"):
     (OUT / d).mkdir(parents=True, exist_ok=True)
 
 
 def gain(a, b):
-    """True if b replaces a: criteria kept, shape not worsened, FFT improved."""
+    """Replacement of a by b: no new missed criterion, no worse shape, better FFT."""
     held = set(b["manques"]) <= set(a["manques"])
     shape_ok = (b["mesures"]["NRMSE"] <= a["mesures"]["NRMSE"] + SHAPE_MARGIN
                 and b["locale"]["PEL_1h"] <= a["locale"]["PEL_1h"] + SHAPE_MARGIN)
@@ -38,6 +39,7 @@ def copy(source, name):
             shutil.copy2(source / f, OUT / f)
 
 
+# Kept version of every target, and its row in the summary table
 rows = []
 for path in sorted(REFERENCE.glob("*.json")):
     name = path.stem
@@ -58,6 +60,7 @@ for path in sorted(REFERENCE.glob("*.json")):
                  "ELM_1h": round(p["locale"]["ELM_1h"], 2),
                  "L_etoile": p["L_etoile"], "func_cycle": p["func_cycle"]})
 
+# Summary table and key figures of the final reference
 summary = pd.DataFrame(rows)
 summary.to_csv(OUT / "bilan_reference.csv", index=False)
 n = len(summary)

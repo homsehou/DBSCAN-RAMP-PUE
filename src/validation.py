@@ -1,23 +1,24 @@
 """Validation contract: ten criteria, local shape, noise-relative thresholds and verdict.
 
-A criterion is met when its gap stays below max(nominal threshold, min(95th percentile of
-a perfect model, 2 x nominal threshold)). The 95th percentile comes from a block bootstrap
-of the retained days (step 2): a perfect model meets each criterion in 95 % of the draws.
-A target whose own noise exceeds twice the nominal threshold on NRMSE or EXT_prof is
-"non verifiable": its days do not allow a model to be judged at the 10 % level.
+Criterion met for a gap below max(nominal threshold, min(95th percentile of a perfect model,
+2 x nominal threshold)). The 95th percentile from a block bootstrap of the retained days
+(step 2), hence a criterion met by a perfect model in 95 % of the draws. Target "non
+verifiable" for its own noise above twice the nominal threshold on NRMSE or EXT_prof: days
+too few or too scattered for any judgement of a model at the 10 % level.
 """
 import numpy as np
 from scipy.signal import find_peaks
 import settings as S
 
 THRESHOLDS = {**S.THRESH_10, **S.SHAPE_THRESHOLDS, "ECART_PICS_h": 1.0}
-CAP_FACTOR = 2.0        # the noise tolerance never exceeds twice the nominal threshold
-MISSED_PEAK_H = 3.0     # a target peak with no model peak within 3 h counts as 3 h
+CAP_FACTOR = 2.0        # cap of the noise tolerance, as a multiple of the nominal threshold
+MISSED_PEAK_H = 3.0     # gap assigned to a target peak without any model peak within 3 h
 PEL_MIN = 0.15          # smallest tolerated worst one-hour smoothed gap, as a share of amplitude
 
 
 def dominant_peaks(profile):
-    """Peaks that visually structure a profile, found with thresholds relative to its amplitude."""
+    """Peaks structuring the shape of a profile, with thresholds relative to its amplitude."""
+    # Light smoothing over three slots, then peaks of the whole day
     sig = np.convolve(np.asarray(profile, float), np.ones(3) / 3, mode="same")
     s_max = float(np.nanmax(sig))
     s_range = float(np.nanmax(sig) - np.nanmin(sig))
@@ -25,7 +26,7 @@ def dominant_peaks(profile):
         return np.array([], int)
     p, _ = find_peaks(sig, height=s_max * 0.16,
                       prominence=max(s_range * 0.08, s_max * 0.06), distance=1)
-    # Evening peaks are searched again with lower thresholds after 18:00
+    # Second search after 18:00 with lower thresholds, for the small evening peaks
     late = int(18 * 60 / S.SLOT_MIN)
     pt = np.array([], int)
     if late < len(sig):
@@ -36,15 +37,16 @@ def dominant_peaks(profile):
 
 
 def robust_peaks(X, share=0.6, draws=40, tol=2, seed=20260910):
-    """Peaks of the mean profile that survive in at least `share` of random half-samples of days.
+    """Peaks of the mean profile found again in at least `share` of random half-samples of days.
 
-    The mean of some twenty days keeps sampling noise, which creates small bumps that the
-    detector counts as peaks; only the peaks that come back in most half-samples are habits.
+    Reason: sampling noise left in the mean of some twenty days, with small bumps taken for
+    peaks by the detector. Only the peaks present in most half-samples count as habits.
     """
     X = np.asarray(X, float)
     pr = dominant_peaks(X.mean(axis=0))
     if len(X) < 8 or len(pr) == 0:
         return pr
+    # Vote of each half-sample for the peaks of the full mean, within `tol` slots
     rng = np.random.default_rng(seed)
     votes = np.zeros(len(pr))
     for _ in range(draws):
@@ -66,7 +68,7 @@ def peak_time_gap_h(target_peaks, sim):
     gaps = []
     for p in target_peaks:
         d = np.abs(sim_peaks - p) if len(sim_peaks) else np.array([96])
-        d = np.minimum(d, 96 - d) / 4          # circular day, in hours
+        d = np.minimum(d, 96 - d) / 4          # distance on a circular day, in hours
         gaps.append(min(float(d.min()), MISSED_PEAK_H))
     return max(gaps)
 
@@ -96,16 +98,16 @@ def threshold(k, p95):
 
 
 def local_thresholds(p95):
-    """Thresholds of the local shape: 95th percentile of a perfect model, PEL at least 0.15."""
+    """Thresholds of the local shape: 95th percentile of a perfect model, with 0.15 as floor of PEL."""
     return {"ELM_1h": p95["ELM_1h"], "ELM_2h": p95["ELM_2h"], "PEL_1h": max(PEL_MIN, p95["PEL_1h"])}
 
 
 def verdict(m, local, p95):
     """Verdict of a target and list of the missed criteria.
 
-    validee        : ten criteria and local shape met (to be confirmed by eye on the plate)
+    validee        : ten criteria and local shape met, to be confirmed by eye on the plate
     rejetee        : at least one criterion missed
-    non verifiable : the noise of the days exceeds the cap on NRMSE or EXT_prof
+    non verifiable : noise of the days above the cap on NRMSE or EXT_prof
     """
     missed = [k for k in THRESHOLDS if abs(m[k]) > threshold(k, p95)]
     missed += [k for k, s in local_thresholds(p95).items() if local[k] > s]

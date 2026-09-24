@@ -2,8 +2,8 @@
 
 Usage: python run.py [--workers 8] [--prefix rejeu/] [--from 4]
   workers: targets calibrated at the same time (one processor each)
-  prefix : sub-folder of resultats/ for the calibration runs; with --prefix rejeu/ the published
-           results stay untouched and the new ones can be compared with them
+  prefix : sub-folder of resultats/ for the calibration runs; with --prefix rejeu/, published
+           results untouched and new ones ready for comparison
   from   : first stage to run, numbered as below (stages 1 to 3 take a few minutes, the whole
            chain about fifteen hours on 15 processors)
 
@@ -21,8 +21,8 @@ Stages and output folders (inside resultats/<prefix>):
   8  months, func_cycle inherited from the season (step 4)     calib_mois/
   9  publication figures and tables, transfer analysis
      (steps 8 and 9)                                           <reference>/publication/
-A step that stops half-way (machine asleep, power cut) resumes where it stopped: a target
-already calibrated is never computed again.
+Resumption after a stop half-way (machine asleep, period without supply) at the point reached:
+no new computation for a target already calibrated.
 """
 import argparse
 import json
@@ -34,6 +34,7 @@ from pathlib import Path
 import pandas as pd
 import settings as S
 
+# Command-line arguments and fixed settings of the chain
 parser = argparse.ArgumentParser()
 parser.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
 parser.add_argument("--prefix", default="")
@@ -42,19 +43,19 @@ args = parser.parse_args()
 P = args.prefix
 ENV = dict(os.environ, OMP_NUM_THREADS="1")      # one processor per target
 GRID_DURATIONS = "5,10,15,30,60"
-DEFAULT_DURATION = 15                            # month without a seasonal equivalent
-HERE = Path(__file__).resolve().parent           # the step scripts sit next to this file
+DEFAULT_DURATION = 15                            # func_cycle of a month without a seasonal equivalent
+HERE = Path(__file__).resolve().parent           # folder of this file and of the step scripts
 
 
 def run(script, *options, grain=None):
-    """One step, run in the foreground; the chain stops if it fails."""
+    """One step in the foreground, with a stop of the chain on failure."""
     env = dict(ENV, GRAIN=grain) if grain else ENV
     print(f"\n=== {script} {' '.join(options)}", flush=True)
     subprocess.run([sys.executable, str(HERE / script), *options], env=env, check=True)
 
 
 def run_targets(script, targets, run_folder, options):
-    """One process per target, several at a time, each with its own log file."""
+    """One process per target, several at a time, each with its own log file, and a stop on failure."""
     logs = S.RESULTS / run_folder / "logs"
     logs.mkdir(parents=True, exist_ok=True)
 
@@ -75,22 +76,24 @@ def run_targets(script, targets, run_folder, options):
 
 
 def to_calibrate(grain):
-    """Targets of a grain that have enough days to be calibrated."""
+    """Targets of a grain with enough days for a calibration."""
     t = pd.read_csv(S.TARGETS / f"cibles_{grain}.csv")
     return list(t[t.statut == "a calibrer"].nom)
 
 
 def month_tasks():
-    """Monthly targets, each with the func_cycle of the seasonal target that contains the month.
+    """Monthly targets, each with the func_cycle of the seasonal target containing the month.
 
-    Only this setting is fixed beforehand: the transfer analysis (step 9) shows that it belongs
-    to the appliance, not to the client (share of variance carried by the client 0.20 for the
-    cold chain and 0.23 for the mills). Everything else is searched month by month."""
+    Only setting fixed beforehand, as a property of the appliance rather than of the client
+    according to the transfer analysis (step 9): share of variance carried by the client 0.20
+    for the cold chain and 0.23 for the mills. Search month by month of everything else."""
+    # func_cycle of each seasonal target, by client, configuration and season
     duration = {}
     for path in sorted((S.RESULTS / f"{P}reference_saison").glob("*.json")):
         p = json.load(open(path))
         season, _, config = p["cible"].partition(" | ")
         duration[(p["client"], config, season)] = p["func_cycle"]
+    # One task per monthly target, with the duration of its season (15 min by default)
     t = pd.read_csv(S.TARGETS / "cibles_mois.csv")
     tasks = []
     for _, r in t[t.statut == "a calibrer"].iterrows():
@@ -101,6 +104,7 @@ def month_tasks():
     return tasks
 
 
+# Stages of the chain, from the one given by --from
 if args.start <= 1:
     run("step1_daily_profiles.py")
 if args.start <= 2:

@@ -1,33 +1,33 @@
 """Step 3: running power and standby power of each appliance, measured at the meter.
 
-For every 15-minute slot the meter gives the mean power and the maximum current reached. A slot
-where the mean current reaches 90 % of the maximum current is a slot of continuous running: its
-mean power is the actual power of the appliance at that time.
+Meter data per 15-minute slot: mean power and maximum current reached. Slot of continuous
+running: mean current at 90 % of the maximum current at least, hence a mean power equal to the
+actual power of the appliance at that time.
 
-Those slots fall into two groups:
+Two groups among those slots:
   - standby: median of the low group, split from the high group by Otsu's method on the
     logarithm of the power;
   - running: main peak of the histogram (bins of a tenth of a decade) above five times the
-    standby power, then median of the slots within half a bin of that peak. The median of the
-    whole high group mixed high standby and running (0017SAM: 28 W instead of 140 W).
-Coefficient = running power / nameplate power. With fewer than 50 slots of continuous running
-(0016GBO: the mill never runs a full quarter of an hour) the running power cannot be measured,
-and the median coefficient of the family is applied to the nameplate, with a flag.
+    standby power, then median of the slots within half a bin of that peak. Reason: a median
+    of the whole high group mixing high standby and running (0017SAM: 28 W instead of 140 W).
+Coefficient = running power / nameplate power. Below 50 slots of continuous running (0016GBO,
+a mill never running a full quarter of an hour), no measured running power: median
+coefficient of the family applied to the nameplate, with a flag.
 
-The running power is never entered in RAMP: it only serves as a plausibility check.
+Running power never entered in RAMP, used as a plausibility check only.
 Output: resultats/cibles_v9/puissances_mesurees.csv (one row per client and fleet)
 """
 import numpy as np
 import pandas as pd
 import settings as S
 
-# Nameplate per fleet: a two-appliance fleet adds up both nameplates
+# Nameplate per fleet, with the sum of both nameplates for a two-appliance fleet
 NAMEPLATE = dict(S.NAMEPLATE_W)
 NAMEPLATE.update({(c, "depuis"): sum(p) for c, p in S.TWO_APPLIANCE_NAMEPLATES.items()})
 
 
 def otsu_threshold(x, n_bins=64):
-    """Threshold that best separates two groups (Otsu's method)."""
+    """Threshold with the best separation of two groups (Otsu's method)."""
     h, edges = np.histogram(x, n_bins)
     centres = 0.5 * (edges[1:] + edges[:-1])
     w0, w1 = np.cumsum(h), np.cumsum(h[::-1])[::-1]
@@ -37,6 +37,7 @@ def otsu_threshold(x, n_bins=64):
     return edges[1:][np.argmax(variance)]
 
 
+# Slots of continuous running of each client and fleet, then standby and running power
 rows = []
 for client in S.CLIENTS:
     d = pd.read_csv(S.DATA / S.CLIENTS[client] / client / f"{client}.csv",
@@ -44,6 +45,7 @@ for client in S.CLIENTS:
     d["jour"] = (pd.to_datetime(d.t, utc=True, format="mixed")
                  .dt.tz_convert("Africa/Porto-Novo").dt.strftime("%Y-%m-%d"))
     d = d[(d.voltage_avg > S.VOLTAGE_OUT) & (d.true_power_avg > 0)]
+    # Fleet configuration of each slot, and operating period only for the incubator
     if client in S.FLEET_CHANGE:
         d["config"] = np.where(d.jour < S.FLEET_CHANGE[client], "avant", "depuis")
     elif client == "0152GBO":
@@ -69,6 +71,7 @@ for client in S.CLIENTS:
                         "source": "coefficient de famille"})
         rows.append(row)
 
+# Coefficient running power / nameplate, and median of the family where no measure exists
 t = pd.DataFrame(rows)
 t["coefficient"] = (t.puissance_marche_W / t.plaque_W).round(2)
 family_coef = t[t.source == "mesure"].groupby("famille").coefficient.median()

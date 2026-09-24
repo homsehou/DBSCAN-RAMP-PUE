@@ -20,6 +20,7 @@ import settings as S
 import validation as V
 import publication_figures as F
 
+# Reference folder, grain and output folders
 parser = argparse.ArgumentParser()
 parser.add_argument("reference")
 parser.add_argument("--grain", default="saison", choices=["saison", "mois"])
@@ -110,12 +111,13 @@ def table_targets(b):
                              "ECART_PICS_h": "heure des pics (h)"})
 
 
+# Results, noise and summary table, plus the targets for the floor figure
 ps, noises, b = load()
 targets = pd.read_csv(S.TARGETS / f"cibles_{args.grain}.csv")
 targets = targets[targets.statut == "a calibrer"]
 print(f"{len(ps)} targets read in {REFERENCE.name}", flush=True)
 
-# One figure per target
+# One publication figure per target: profile, usage band and residual relative to the noise
 for p, noise in zip(ps, noises):
     F.save(F.figure_target(p, noise), OUT / "figures" / "cibles" / p["nom"])
 print("figures per target: done", flush=True)
@@ -139,7 +141,7 @@ if args.grain == "mois":
                OUT / "figures" / f"multiples_client_{client}")
 print("small multiples: done", flush=True)
 
-# Summary figures
+# Summary figures over every target: criteria, noise floor, and RAMP parameters per client and fleet
 F.save(F.figure_criteria(b), OUT / "figures" / "criteres")
 F.save(F.figure_floor(targets), OUT / "figures" / "plancher_journees")
 F.save(F.figure_observed_floor(b), OUT / "figures" / "observe_plancher")
@@ -152,7 +154,7 @@ for (client, plates), g in pd.DataFrame(
            OUT / "figures" / f"parametres_{client}_{plates.replace(' + ', '_')}")
 print("summary figures: done", flush=True)
 
-# Tables
+# Tables in Markdown and LaTeX, and the full summary as CSV
 tables = OUT / "tableaux"
 F.write_table(table_families(b), tables, "resultats_par_categorie", "Résultats par catégorie d'usage")
 F.write_table(table_ranges(b), tables, "plages_criteres", "Plage de variation de chaque critère de validation")

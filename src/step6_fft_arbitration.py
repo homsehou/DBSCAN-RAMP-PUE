@@ -1,9 +1,9 @@
 """Step 6: tie-break on the harmonics (FFT) criterion, all other criteria kept.
 
-The final candidates of each target were saved during the calibration. They are replayed with
-the check seeds, and the one with the smallest FFT gap is kept, provided it misses no new
-criterion and does not worsen the shape (NRMSE and worst one-hour smoothed gap). The version of
-the reference competes with the candidates.
+Replay, with the check seeds, of the final candidates saved during the calibration of each
+target. Choice of the smallest FFT gap, under two conditions: no new missed criterion, and no
+worse shape (NRMSE and worst one-hour smoothed gap). Version of the reference in competition
+with the candidates.
 
 Usage: python step6_fft_arbitration.py <target> --run <folder> --reference <folder> --candidates <folder>
        (folders inside resultats/)
@@ -21,6 +21,7 @@ import plates as PL
 
 SHAPE_MARGIN = 0.005          # margin on NRMSE and on the worst smoothed gap (absolute)
 
+# Command-line arguments, output folders, and exit for a target already arbitrated
 parser = argparse.ArgumentParser()
 parser.add_argument("target")
 parser.add_argument("--run", required=True)
@@ -36,6 +37,7 @@ if (OUT / f"{NAME}.json").exists():
     raise SystemExit(0)
 T0 = time.time()
 
+# Reference version, target profile and noise thresholds
 base = json.load(open(REFERENCE / f"{NAME}.json"))
 noise = dict(np.load(S.TARGETS / "bruit_saison" / f"{NAME}.npz"))
 y = noise["cible"]
@@ -54,11 +56,12 @@ def judge(text):
     return {"profil": profile, "mesures": measures, "locale": local, "verdict": verdict, "manques": missed}
 
 
+# Starting point: the reference version, replayed with the check seeds
 start = judge(open(REFERENCE / "entrees_ramp" / f"{NAME}.py").read())
 print(f"{NAME}: start FFT {start['mesures']['FFT_err']:.3f}, NRMSE {start['mesures']['NRMSE']:.3f}, "
       f"missed {start['manques']}", flush=True)
 
-# Candidates of the same calibration, replayed with the check seeds
+# Candidates of the same calibration, replayed with the check seeds, and the best one kept
 kept = None
 for f in json.load(open(CANDIDATES / "finalistes" / f"{NAME}.json")):
     e = judge(f["texte_ramp"])
@@ -72,7 +75,7 @@ for f in json.load(open(CANDIDATES / "finalistes" / f"{NAME}.json")):
         kept = (f, e)
 
 if kept is None:
-    # Nothing better: the starting version is copied as it is
+    # No better candidate: unchanged copy of the starting version
     for f in (f"{NAME}.json", f"{NAME}_profil.npy", f"entrees_ramp/{NAME}.py",
               f"planches/{NAME}.png", f"planches/{NAME}.pdf"):
         if (REFERENCE / f).exists():
@@ -80,6 +83,7 @@ if kept is None:
     print(f"{NAME}: start kept, {round(time.time() - T0)} s", flush=True)
     raise SystemExit(0)
 
+# Result file of the kept candidate, with the parameters as entered in RAMP
 f, e = kept
 p = dict(base,
          fenetres=f["fenetres"],
@@ -95,6 +99,7 @@ p = dict(base,
          secondes=round(time.time() - T0),
          arbitrage_fft=f"candidat {f['rang_candidat']}, L* {f['L_etoile']} min")
 
+# Simulated profile, RAMP input file, result and working plate
 np.save(OUT / f"{NAME}_profil.npy", e["profil"])
 (OUT / "entrees_ramp" / f"{NAME}.py").write_text(f["texte_ramp"])
 S.write_json(OUT / f"{NAME}.json", p)

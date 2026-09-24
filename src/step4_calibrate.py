@@ -9,7 +9,7 @@ Usage: python step4_calibrate.py <target> --run <folder> [--grain saison|mois]
 
 Outputs in resultats/<run>/: <target>.json (parameters, criteria, verdict), <target>_profil.npy,
 entrees_ramp/<target>.py (declaration runnable on its own), finalistes/<target>.json,
-planches/<target>.png and .pdf. A target already calibrated is skipped.
+planches/<target>.png and .pdf. No new computation for a target already calibrated.
 Method: see calibration.py.
 """
 import argparse
@@ -22,11 +22,12 @@ import validation as V
 import calibration as K
 import plates as PL
 
-# The two search settings used for the published results
+# The two search settings behind the published results
 SETTINGS = {"final": {"peak_weight": 0.0, "short_period": True},
             "2026-09-19": {"peak_weight": 0.03, "short_period": False}}
 SLOTS = [f"slot_{i}" for i in range(S.SLOTS_PER_DAY)]
 
+# Command-line arguments, output folders, and exit for a target already calibrated
 parser = argparse.ArgumentParser()
 parser.add_argument("target")
 parser.add_argument("--run", required=True)
@@ -43,7 +44,7 @@ if (OUT / f"{NAME}.json").exists():
     raise SystemExit(0)
 T0 = time.time()
 
-# Target, retained days and noise
+# Target definition: retained days, running flag of each day, sampling noise and noise thresholds
 r = pd.read_csv(S.TARGETS / f"cibles_{args.grain}.csv").set_index("nom").loc[NAME]
 days = pd.read_csv(S.TARGETS / "journees" / f"{r.client}.csv")
 clusters = pd.read_csv(S.TARGETS / f"clusters_{args.grain}" / f"{r.client}.csv")
@@ -53,7 +54,7 @@ X, running = d[SLOTS].to_numpy(float), d.marche.to_numpy(bool)
 noise = dict(np.load(S.TARGETS / f"bruit_{args.grain}" / f"{NAME}.npz"))
 p95 = {k[4:]: float(r[k]) for k in r.index if k.startswith("p95_")}
 
-# Appliance as a RAMP user knows it: nameplate(s) from the survey, measured standby power
+# Appliance as seen by a RAMP user: nameplate power from the field survey, measured standby power
 config = "" if pd.isna(r.configuration) else str(r.configuration).split(" ")[0]
 plates = list(S.TWO_APPLIANCE_NAMEPLATES[r.client]) if config == "depuis" else [S.NAMEPLATE_W[r.client]]
 power = pd.read_csv(S.TARGETS / "puissances_mesurees.csv").fillna({"config": ""})
@@ -63,6 +64,7 @@ header = f"{r.client}, {r.cible}: {r.famille}, nameplate {plate_text}. RAMP para
 app = K.Appliance(r.client, r.famille, plates, measured.veille_W, header)
 print(f"{NAME}: {len(X)} days, nameplate {plate_text}, standby {measured.veille_W} W", flush=True)
 
+# Calibration, then the result file with the parameters as entered in RAMP
 res = K.calibrate(app, X, running, noise, p95, durations=tuple(int(v) for v in args.durations.split(",")),
                   log=lambda s: print(s, flush=True), **SETTINGS[args.setting])
 c = res["choix"]
@@ -87,10 +89,11 @@ p = {"client": r.client, "cible": r.cible, "nom": NAME, "famille": r.famille,
      "etiquettes": [int(v) for v in c["etiquettes"]], "reglage": args.setting,
      "secondes": round(time.time() - T0)}
 
+# Simulated profile, RAMP input file, result, finalists and working plate
 np.save(OUT / f"{NAME}_profil.npy", res["profil"])
 (OUT / "entrees_ramp" / f"{NAME}.py").write_text(res["texte"])
 S.write_json(OUT / f"{NAME}.json", p)
-# numpy numbers turned into plain numbers for the JSON file
+# Conversion of the numpy numbers into plain numbers for the JSON file
 S.write_json(OUT / "finalistes" / f"{NAME}.json",
              json.loads(json.dumps(res["finalistes"], default=lambda o: o.item() if hasattr(o, "item") else str(o))))
 PL.save(PL.plate(dict(p, profil=res["profil"]), noise), OUT / "planches" / NAME)
