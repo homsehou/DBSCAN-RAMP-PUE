@@ -1,4 +1,6 @@
-# Versions used to produce the committed results.
+# Versions used to produce the committed results, with Python 3.12.
+# Python 3.12 or later is needed to get the results back bit for bit: sum() compensates
+# rounding errors since that version, and the objective of the calibration relies on it.
 # Setup:  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 numpy==2.4.4
 pandas==2.3.3
@@ -11,4 +13,5 @@ tqdm==4.67.3
 openpyxl==3.1.5
 jupyterlab==4.6.1
 ipykernel==6.31.0
+nbconvert==7.17.1
 plotly==6.9.0

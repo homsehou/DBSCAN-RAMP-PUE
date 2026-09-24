@@ -1,0 +1,611 @@
+jour,mois,creneaux_manquants,pire_trou,creneaux_en_coupure,garde,actif,motif,energie_kWh,pointe_W,rejet_commun_site
+2024-11-29,2024-11,58,58,0,False,False,avant le debut d'etude,0.0,,False
+2024-11-30,2024-11,0,0,0,False,False,avant le debut d'etude,0.057,,False
+2024-12-01,2024-12,0,0,0,False,False,avant le debut d'etude,0.134,,False
+2024-12-02,2024-12,14,7,0,False,False,avant le debut d'etude,0.08325,,False
+2024-12-03,2024-12,16,16,0,False,False,avant le debut d'etude,0.0695,,False
+2024-12-04,2024-12,8,5,0,False,False,avant le debut d'etude,0.068,,False
+2024-12-05,2024-12,20,8,0,False,False,avant le debut d'etude,0.044,,False
+2024-12-06,2024-12,4,4,0,False,False,avant le debut d'etude,0.08,,False
+2024-12-07,2024-12,3,3,0,False,False,avant le debut d'etude,0.0605,,False
+2024-12-08,2024-12,3,3,0,False,False,avant le debut d'etude,0.061,,False
+2024-12-09,2024-12,0,0,0,False,False,avant le debut d'etude,0.077,,False
+2024-12-10,2024-12,3,3,0,False,False,avant le debut d'etude,0.075,,False
+2024-12-11,2024-12,0,0,0,False,False,avant le debut d'etude,0.066,,False
+2024-12-12,2024-12,0,0,0,False,False,avant le debut d'etude,0.027,,False
+2024-12-13,2024-12,5,5,0,False,False,avant le debut d'etude,0.0625,,False
+2024-12-14,2024-12,0,0,0,False,False,avant le debut d'etude,0.0765,,False
+2024-12-15,2024-12,0,0,0,False,False,avant le debut d'etude,0.055,,False
+2024-12-16,2024-12,0,0,0,False,False,avant le debut d'etude,0.06,,False
+2024-12-17,2024-12,0,0,0,False,False,avant le debut d'etude,0.05325,,False
+2024-12-18,2024-12,0,0,0,False,False,avant le debut d'etude,0.0615,,False
+2024-12-19,2024-12,0,0,0,False,False,avant le debut d'etude,0.087,,False
+2024-12-20,2024-12,0,0,0,False,False,avant le debut d'etude,0.0555,,False
+2024-12-21,2024-12,0,0,0,False,False,avant le debut d'etude,0.067,,False
+2024-12-22,2024-12,0,0,0,False,False,avant le debut d'etude,0.0165,,False
+2024-12-23,2024-12,0,0,0,False,False,avant le debut d'etude,0.072,,False
+2024-12-24,2024-12,0,0,0,False,False,avant le debut d'etude,0.0775,,False
+2024-12-25,2024-12,0,0,0,False,False,avant le debut d'etude,0.0655,,False
+2024-12-26,2024-12,0,0,0,False,False,avant le debut d'etude,0.0815,,False
+2024-12-27,2024-12,0,0,0,False,False,avant le debut d'etude,0.0775,,False
+2024-12-28,2024-12,0,0,0,False,False,avant le debut d'etude,0.06375,,False
+2024-12-29,2024-12,0,0,0,False,False,avant le debut d'etude,0.0495,,False
+2024-12-30,2024-12,0,0,0,False,False,avant le debut d'etude,0.049,,False
+2024-12-31,2024-12,0,0,0,False,False,avant le debut d'etude,0.1075,,False
+2025-01-01,2025-01,11,11,0,False,False,avant le debut d'etude,0.1365,,False
+2025-01-02,2025-01,6,6,0,False,False,avant le debut d'etude,0.0615,,False
+2025-01-03,2025-01,8,8,0,False,False,avant le debut d'etude,0.06475,,False
+2025-01-04,2025-01,8,8,0,False,False,avant le debut d'etude,0.052,,False
+2025-01-05,2025-01,20,20,0,False,False,avant le debut d'etude,0.0585,,False
+2025-01-06,2025-01,0,0,0,False,False,avant le debut d'etude,0.0445,,False
+2025-01-07,2025-01,0,0,0,False,False,avant le debut d'etude,0.035,,False
+2025-01-08,2025-01,0,0,0,False,False,avant le debut d'etude,0.043,,False
+2025-01-09,2025-01,0,0,0,False,False,avant le debut d'etude,0.041,,False
+2025-01-10,2025-01,0,0,0,False,False,avant le debut d'etude,0.054,,False
+2025-01-11,2025-01,0,0,0,False,False,avant le debut d'etude,0.0425,,False
+2025-01-12,2025-01,0,0,0,False,False,avant le debut d'etude,0.048,,False
+2025-01-13,2025-01,0,0,0,False,False,avant le debut d'etude,0.0755,,False
+2025-01-14,2025-01,0,0,0,False,False,avant le debut d'etude,0.0475,,False
+2025-01-15,2025-01,23,20,0,False,False,avant le debut d'etude,0.058,,False
+2025-01-16,2025-01,0,0,0,False,False,avant le debut d'etude,0.084,,False
+2025-01-17,2025-01,0,0,0,False,False,avant le debut d'etude,0.071,,False
+2025-01-18,2025-01,0,0,0,False,False,avant le debut d'etude,0.0825,,False
+2025-01-19,2025-01,0,0,0,False,False,avant le debut d'etude,0.07275,,False
+2025-01-20,2025-01,4,4,0,False,False,avant le debut d'etude,0.0495,,False
+2025-01-21,2025-01,0,0,0,False,False,avant le debut d'etude,0.0385,,False
+2025-01-22,2025-01,0,0,0,False,False,avant le debut d'etude,0.0745,,False
+2025-01-23,2025-01,0,0,0,False,False,avant le debut d'etude,0.056,,False
+2025-01-24,2025-01,0,0,0,False,False,avant le debut d'etude,0.075,,False
+2025-01-25,2025-01,4,4,0,False,False,avant le debut d'etude,0.07425,,False
+2025-01-26,2025-01,9,9,0,False,False,avant le debut d'etude,0.03325,,False
+2025-01-27,2025-01,24,11,0,False,False,avant le debut d'etude,0.063,,False
+2025-01-28,2025-01,0,0,0,False,False,avant le debut d'etude,0.056,,False
+2025-01-29,2025-01,0,0,0,False,False,avant le debut d'etude,0.063,,False
+2025-01-30,2025-01,0,0,0,False,False,avant le debut d'etude,0.08825,,False
+2025-01-31,2025-01,0,0,0,False,False,avant le debut d'etude,0.029,,False
+2025-02-01,2025-02,0,0,0,False,False,avant le debut d'etude,0.0,,False
+2025-02-02,2025-02,16,16,0,False,False,avant le debut d'etude,0.0,,False
+2025-02-03,2025-02,0,0,0,False,False,avant le debut d'etude,0.0095,,False
+2025-02-04,2025-02,9,9,0,False,False,avant le debut d'etude,0.0375,,False
+2025-02-05,2025-02,7,7,0,False,False,avant le debut d'etude,0.0445,,False
+2025-02-06,2025-02,7,7,0,False,False,avant le debut d'etude,0.019,,False
+2025-02-07,2025-02,0,0,0,False,False,avant le debut d'etude,0.01275,,False
+2025-02-08,2025-02,52,23,0,False,False,avant le debut d'etude,0.004,,False
+2025-02-09,2025-02,6,6,0,False,False,avant le debut d'etude,0.021,,False
+2025-02-10,2025-02,9,3,0,False,False,avant le debut d'etude,0.03825,,False
+2025-02-11,2025-02,0,0,0,False,False,avant le debut d'etude,0.0275,,False
+2025-02-12,2025-02,0,0,0,False,False,avant le debut d'etude,0.036,,False
+2025-02-13,2025-02,0,0,0,False,False,avant le debut d'etude,0.0085,,False
+2025-02-14,2025-02,0,0,0,False,False,avant le debut d'etude,0.037,,False
+2025-02-15,2025-02,5,5,0,False,False,avant le debut d'etude,0.0685,,False
+2025-02-16,2025-02,11,11,0,False,False,avant le debut d'etude,0.041,,False
+2025-02-17,2025-02,0,0,0,False,False,avant le debut d'etude,0.02375,,False
+2025-02-18,2025-02,0,0,0,False,False,avant le debut d'etude,0.019,,False
+2025-02-19,2025-02,0,0,0,False,False,avant le debut d'etude,0.021,,False
+2025-02-20,2025-02,0,0,0,False,False,avant le debut d'etude,0.024,,False
+2025-02-21,2025-02,0,0,0,False,False,avant le debut d'etude,0.027,,False
+2025-02-22,2025-02,0,0,0,False,False,avant le debut d'etude,0.0435,,False
+2025-02-23,2025-02,4,4,0,False,False,avant le debut d'etude,0.011,,False
+2025-02-24,2025-02,7,7,0,False,False,avant le debut d'etude,0.0185,,False
+2025-02-25,2025-02,0,0,0,False,False,avant le debut d'etude,0.03325,,False
+2025-02-26,2025-02,0,0,0,False,False,avant le debut d'etude,0.02075,,False
+2025-02-27,2025-02,0,0,0,False,False,avant le debut d'etude,0.0,,False
+2025-02-28,2025-02,4,4,0,False,False,avant le debut d'etude,0.0,,False
+2025-03-01,2025-03,0,0,0,False,False,avant le debut d'etude,0.0195,,False
+2025-03-02,2025-03,0,0,0,False,False,avant le debut d'etude,0.0535,,False
+2025-03-03,2025-03,0,0,0,False,False,avant le debut d'etude,0.08575,,False
+2025-03-04,2025-03,0,0,0,False,False,avant le debut d'etude,0.051,,False
+2025-03-05,2025-03,0,0,0,False,False,avant le debut d'etude,0.035,,False
+2025-03-06,2025-03,5,5,0,False,False,avant le debut d'etude,0.03,,False
+2025-03-07,2025-03,0,0,0,False,False,avant le debut d'etude,0.01925,,False
+2025-03-08,2025-03,0,0,0,False,False,avant le debut d'etude,0.0065,,False
+2025-03-09,2025-03,0,0,0,False,False,avant le debut d'etude,0.015,,False
+2025-03-10,2025-03,3,3,0,False,False,avant le debut d'etude,0.032,,False
+2025-03-11,2025-03,42,42,0,False,False,avant le debut d'etude,0.025,,False
+2025-03-12,2025-03,0,0,0,False,False,avant le debut d'etude,0.0425,,False
+2025-03-13,2025-03,0,0,0,True,True,,1.3095,238.0,False
+2025-03-14,2025-03,7,7,0,False,False,moins de 90 creneaux valides,2.81025,,True
+2025-03-15,2025-03,11,8,0,False,False,moins de 90 creneaux valides,2.911,,True
+2025-03-16,2025-03,0,0,0,True,True,,2.122,220.0,False
+2025-03-17,2025-03,4,4,0,False,False,trou de plus de 30 min,2.6305,,True
+2025-03-18,2025-03,0,0,0,True,True,,3.5115,230.0,False
+2025-03-19,2025-03,0,0,0,True,True,,3.307,232.0,False
+2025-03-20,2025-03,5,5,0,False,False,trou de plus de 30 min,3.4905,,True
+2025-03-21,2025-03,0,0,0,True,True,,2.9655,212.0,False
+2025-03-22,2025-03,0,0,0,True,True,,3.062,226.0,False
+2025-03-23,2025-03,0,0,0,True,True,,3.23,214.0,False
+2025-03-24,2025-03,15,15,0,False,False,moins de 90 creneaux valides,2.623,,True
+2025-03-25,2025-03,0,0,0,True,True,,3.668,210.0,False
+2025-03-26,2025-03,8,8,0,False,False,moins de 90 creneaux valides,3.5295,,True
+2025-03-27,2025-03,0,0,0,True,True,,2.76825,206.0,False
+2025-03-28,2025-03,22,22,0,False,False,moins de 90 creneaux valides,2.7345,,True
+2025-03-29,2025-03,4,4,0,False,False,trou de plus de 30 min,3.52475,,True
+2025-03-30,2025-03,8,8,0,False,False,moins de 90 creneaux valides,3.246,,True
+2025-03-31,2025-03,0,0,0,True,True,,2.92425,200.0,False
+2025-04-01,2025-04,9,9,0,False,False,moins de 90 creneaux valides,2.88975,,True
+2025-04-02,2025-04,10,10,0,False,False,moins de 90 creneaux valides,2.1945,,True
+2025-04-03,2025-04,0,0,0,True,True,,2.514,176.0,False
+2025-04-04,2025-04,0,0,0,True,True,,3.2845,190.0,False
+2025-04-05,2025-04,0,0,0,True,True,,3.478,204.0,False
+2025-04-06,2025-04,0,0,0,True,True,,2.5025,188.0,False
+2025-04-07,2025-04,0,0,0,True,True,,3.4295,192.0,False
+2025-04-08,2025-04,0,0,0,True,True,,2.391,178.0,False
+2025-04-09,2025-04,0,0,0,True,True,,2.55375,188.0,False
+2025-04-10,2025-04,0,0,0,True,True,,3.23875,186.0,False
+2025-04-11,2025-04,6,6,0,False,False,trou de plus de 30 min,2.047,,True
+2025-04-12,2025-04,0,0,0,True,True,,2.39775,170.0,False
+2025-04-13,2025-04,0,0,0,True,True,,3.444,180.0,False
+2025-04-14,2025-04,0,0,0,True,True,,2.11525,182.0,False
+2025-04-15,2025-04,0,0,0,True,True,,2.729,180.0,False
+2025-04-16,2025-04,0,0,0,True,True,,3.63525,186.0,False
+2025-04-17,2025-04,0,0,0,True,True,,3.453,176.0,False
+2025-04-18,2025-04,0,0,0,True,True,,2.7955,180.0,False
+2025-04-19,2025-04,0,0,0,True,True,,3.31075,178.0,False
+2025-04-20,2025-04,0,0,0,True,True,,2.666,184.0,False
+2025-04-21,2025-04,0,0,0,True,True,,3.56225,180.0,False
+2025-04-22,2025-04,0,0,0,True,True,,2.088,174.0,False
+2025-04-23,2025-04,0,0,0,True,True,,2.39825,164.0,False
+2025-04-24,2025-04,0,0,0,True,True,,2.2995,168.0,False
+2025-04-25,2025-04,6,6,0,False,False,trou de plus de 30 min,1.67625,,True
+2025-04-26,2025-04,0,0,0,True,True,,1.783,160.0,False
+2025-04-27,2025-04,0,0,0,True,False,,0.0,0.0,False
+2025-04-28,2025-04,0,0,0,True,False,,0.0,0.0,False
+2025-04-29,2025-04,0,0,0,True,False,,0.0,0.0,False
+2025-04-30,2025-04,0,0,0,True,True,,0.2585,160.0,False
+2025-05-01,2025-05,0,0,0,True,True,,3.0815,170.0,False
+2025-05-02,2025-05,0,0,0,True,True,,2.78825,162.0,False
+2025-05-03,2025-05,0,0,0,True,True,,2.4855,158.0,False
+2025-05-04,2025-05,0,0,0,True,True,,2.6905,178.0,False
+2025-05-05,2025-05,19,12,0,False,False,moins de 90 creneaux valides,2.087,,True
+2025-05-06,2025-05,0,0,0,True,True,,1.7195,170.0,False
+2025-05-07,2025-05,0,0,0,True,True,,2.73075,176.0,False
+2025-05-08,2025-05,0,0,0,True,True,,2.20725,154.0,False
+2025-05-09,2025-05,0,0,0,True,True,,1.1485,160.0,False
+2025-05-10,2025-05,0,0,0,True,True,,2.501,160.0,False
+2025-05-11,2025-05,0,0,0,True,True,,2.212,158.0,False
+2025-05-12,2025-05,0,0,0,True,True,,2.235,160.0,False
+2025-05-13,2025-05,0,0,0,True,True,,2.14275,164.0,False
+2025-05-14,2025-05,0,0,0,True,True,,2.03325,162.0,False
+2025-05-15,2025-05,0,0,0,True,True,,2.10875,158.0,False
+2025-05-16,2025-05,0,0,0,True,True,,2.0275,152.0,False
+2025-05-17,2025-05,0,0,0,True,True,,3.20475,152.0,False
+2025-05-18,2025-05,0,0,0,True,True,,3.01175,140.0,False
+2025-05-19,2025-05,0,0,0,True,True,,2.43775,140.0,False
+2025-05-20,2025-05,0,0,0,True,True,,1.6885,176.0,False
+2025-05-21,2025-05,0,0,0,True,True,,0.87725,134.0,False
+2025-05-22,2025-05,0,0,0,True,True,,0.9905,164.0,False
+2025-05-23,2025-05,0,0,0,True,True,,3.146,146.0,False
+2025-05-24,2025-05,0,0,0,True,True,,2.412,136.0,False
+2025-05-25,2025-05,0,0,0,True,True,,1.464,142.0,False
+2025-05-26,2025-05,0,0,0,True,True,,1.4645,146.0,False
+2025-05-27,2025-05,6,6,0,False,False,trou de plus de 30 min,1.6965,,True
+2025-05-28,2025-05,0,0,0,True,True,,2.108,146.0,False
+2025-05-29,2025-05,0,0,0,True,True,,0.722,138.0,False
+2025-05-30,2025-05,0,0,0,True,True,,1.328,142.0,False
+2025-05-31,2025-05,0,0,0,True,True,,1.939,144.0,False
+2025-06-01,2025-06,0,0,0,True,True,,1.0135,154.0,False
+2025-06-02,2025-06,0,0,0,True,True,,0.337,144.0,False
+2025-06-03,2025-06,0,0,0,True,True,,1.276,146.0,False
+2025-06-04,2025-06,0,0,0,True,True,,1.6615,140.0,False
+2025-06-05,2025-06,0,0,0,True,True,,0.8555,144.0,False
+2025-06-06,2025-06,10,10,0,False,False,moins de 90 creneaux valides,1.724,,True
+2025-06-07,2025-06,3,3,0,False,False,trou de plus de 30 min,1.128,,True
+2025-06-08,2025-06,0,0,0,True,True,,1.803,132.0,False
+2025-06-09,2025-06,0,0,0,True,True,,0.547,136.0,False
+2025-06-10,2025-06,0,0,0,True,True,,1.117,136.0,False
+2025-06-11,2025-06,0,0,0,True,True,,0.3515,140.0,False
+2025-06-12,2025-06,0,0,0,True,True,,0.4655,134.0,False
+2025-06-13,2025-06,0,0,0,True,True,,0.007,10.0,False
+2025-06-14,2025-06,0,0,0,True,True,,0.2485,136.0,False
+2025-06-15,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-16,2025-06,3,3,0,False,False,trou de plus de 30 min,0.0,,True
+2025-06-17,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-18,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-19,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-20,2025-06,0,0,0,True,True,,0.008,6.0,False
+2025-06-21,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-22,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-23,2025-06,0,0,0,True,True,,0.026,10.0,False
+2025-06-24,2025-06,0,0,0,True,True,,0.0025,4.0,False
+2025-06-25,2025-06,0,0,0,True,True,,0.2305,140.0,False
+2025-06-26,2025-06,0,0,0,True,True,,0.0295,14.0,False
+2025-06-27,2025-06,9,9,0,False,False,moins de 90 creneaux valides,0.604,,True
+2025-06-28,2025-06,0,0,0,True,True,,0.0185,10.0,False
+2025-06-29,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-06-30,2025-06,0,0,0,True,False,,0.0,0.0,False
+2025-07-01,2025-07,0,0,0,True,True,,0.0345,16.0,False
+2025-07-02,2025-07,0,0,0,True,True,,1.728,140.0,False
+2025-07-03,2025-07,0,0,0,True,True,,0.702,132.0,False
+2025-07-04,2025-07,0,0,0,True,True,,0.805,132.0,False
+2025-07-05,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-06,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-07,2025-07,16,16,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-07-08,2025-07,3,3,0,False,False,trou de plus de 30 min,0.0,,True
+2025-07-09,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-10,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-11,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-12,2025-07,56,56,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-07-13,2025-07,3,3,0,False,False,trou de plus de 30 min,0.0,,True
+2025-07-14,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-15,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-16,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-17,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-18,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-19,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-20,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-21,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-22,2025-07,0,0,0,True,False,,0.0,0.0,False
+2025-07-23,2025-07,5,5,0,False,False,trou de plus de 30 min,0.0,,True
+2025-07-24,2025-07,0,0,0,True,True,,0.8645,142.0,False
+2025-07-25,2025-07,0,0,0,True,True,,2.0575,130.0,False
+2025-07-26,2025-07,26,26,0,False,False,moins de 90 creneaux valides,1.64275,,True
+2025-07-27,2025-07,0,0,0,True,True,,0.337,128.0,False
+2025-07-28,2025-07,90,90,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-07-29,2025-07,29,23,0,False,False,moins de 90 creneaux valides,0.0025,,True
+2025-07-30,2025-07,3,3,0,False,False,trou de plus de 30 min,0.0,,True
+2025-07-31,2025-07,29,17,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-01,2025-08,54,48,0,False,False,moins de 90 creneaux valides,0.269,,True
+2025-08-02,2025-08,27,9,0,False,False,moins de 90 creneaux valides,1.53125,,True
+2025-08-03,2025-08,5,5,0,False,False,trou de plus de 30 min,0.629,,True
+2025-08-04,2025-08,27,23,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-05,2025-08,4,4,0,False,False,trou de plus de 30 min,0.0,,True
+2025-08-06,2025-08,13,7,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-07,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-08,2025-08,12,9,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-09,2025-08,42,25,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-10,2025-08,25,15,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-11,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-12,2025-08,9,9,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-08-13,2025-08,0,0,0,True,True,,0.002,2.0,False
+2025-08-14,2025-08,0,0,0,True,True,,0.0475,18.0,False
+2025-08-15,2025-08,0,0,0,True,True,,0.01125,6.0,False
+2025-08-16,2025-08,0,0,0,True,True,,0.006,2.0,False
+2025-08-17,2025-08,0,0,0,True,True,,0.01425,6.0,False
+2025-08-18,2025-08,0,0,0,True,True,,0.0055,2.0,False
+2025-08-19,2025-08,0,0,0,True,True,,0.0075,2.0,False
+2025-08-20,2025-08,0,0,0,True,True,,0.00125,2.0,False
+2025-08-21,2025-08,0,0,0,True,True,,0.003,6.0,False
+2025-08-22,2025-08,0,0,0,True,True,,0.006,2.0,False
+2025-08-23,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-24,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-25,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-26,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-27,2025-08,0,0,0,True,False,,0.0,0.0,False
+2025-08-28,2025-08,0,0,0,True,True,,0.0025,6.0,False
+2025-08-29,2025-08,0,0,0,True,True,,0.0125,4.0,False
+2025-08-30,2025-08,0,0,0,True,True,,0.12,126.0,False
+2025-08-31,2025-08,0,0,0,True,True,,0.008,6.0,False
+2025-09-01,2025-09,0,0,0,True,True,,0.0145,14.0,False
+2025-09-02,2025-09,0,0,0,True,True,,0.0015,6.0,False
+2025-09-03,2025-09,0,0,0,True,True,,0.0325,10.0,False
+2025-09-04,2025-09,0,0,0,True,True,,0.03325,12.0,False
+2025-09-05,2025-09,0,0,0,True,True,,0.2225,176.0,False
+2025-09-06,2025-09,0,0,0,True,False,,0.0,0.0,False
+2025-09-07,2025-09,0,0,0,True,True,,0.0365,16.0,False
+2025-09-08,2025-09,0,0,0,True,True,,0.0365,14.0,False
+2025-09-09,2025-09,14,14,0,False,False,moins de 90 creneaux valides,0.001,,True
+2025-09-10,2025-09,14,11,0,False,False,moins de 90 creneaux valides,0.795,,True
+2025-09-11,2025-09,3,3,0,False,False,trou de plus de 30 min,2.342,,True
+2025-09-12,2025-09,2,2,0,False,False,trou de plus de 30 min,1.7525,,True
+2025-09-13,2025-09,40,40,0,False,False,moins de 90 creneaux valides,0.7015,,True
+2025-09-14,2025-09,0,0,0,True,True,,0.85,192.0,False
+2025-09-15,2025-09,0,0,0,True,True,,1.301,258.0,False
+2025-09-16,2025-09,0,0,0,True,True,,2.182,214.0,False
+2025-09-17,2025-09,0,0,0,True,True,,3.302,586.0,False
+2025-09-18,2025-09,0,0,0,True,True,,6.3275,548.0,False
+2025-09-19,2025-09,0,0,0,True,True,,2.947,316.0,False
+2025-09-20,2025-09,0,0,0,True,True,,1.89725,356.0,False
+2025-09-21,2025-09,0,0,0,True,True,,1.13,360.0,False
+2025-09-22,2025-09,0,0,0,True,True,,4.134,374.0,False
+2025-09-23,2025-09,0,0,0,True,True,,3.99175,356.0,False
+2025-09-24,2025-09,0,0,0,True,True,,1.141,324.0,False
+2025-09-25,2025-09,14,14,0,False,False,moins de 90 creneaux valides,0.3405,,True
+2025-09-26,2025-09,3,3,0,False,False,trou de plus de 30 min,4.413,,True
+2025-09-27,2025-09,0,0,0,True,True,,4.9025,510.0,False
+2025-09-28,2025-09,4,4,0,False,False,trou de plus de 30 min,1.5155,,True
+2025-09-29,2025-09,0,0,0,True,True,,1.2125,336.0,False
+2025-09-30,2025-09,0,0,0,True,True,,1.2735,364.0,False
+2025-10-01,2025-10,0,0,0,True,True,,2.222,336.0,False
+2025-10-02,2025-10,0,0,0,True,True,,1.562,362.0,False
+2025-10-03,2025-10,0,0,0,True,True,,3.36,350.0,False
+2025-10-04,2025-10,0,0,0,True,True,,2.1175,364.0,False
+2025-10-05,2025-10,0,0,0,True,True,,3.5085,366.0,False
+2025-10-06,2025-10,0,0,0,True,True,,1.34,326.0,False
+2025-10-07,2025-10,0,0,0,True,True,,1.428,334.0,False
+2025-10-08,2025-10,0,0,0,True,True,,2.982,352.0,False
+2025-10-09,2025-10,0,0,0,True,True,,6.3285,628.0,False
+2025-10-10,2025-10,0,0,0,True,True,,7.0895,528.0,False
+2025-10-11,2025-10,0,0,0,True,True,,2.917,374.0,False
+2025-10-12,2025-10,0,0,0,True,True,,4.73075,370.0,False
+2025-10-13,2025-10,0,0,0,True,True,,2.0295,332.0,False
+2025-10-14,2025-10,0,0,0,True,True,,1.7425,362.0,False
+2025-10-15,2025-10,0,0,0,True,True,,2.0165,330.0,False
+2025-10-16,2025-10,0,0,0,True,True,,1.0015,326.0,False
+2025-10-17,2025-10,0,0,0,True,True,,2.18,402.0,False
+2025-10-18,2025-10,0,0,0,True,True,,3.20575,338.0,False
+2025-10-19,2025-10,0,0,0,True,True,,1.0155,324.0,False
+2025-10-20,2025-10,0,0,0,True,True,,1.501,396.0,False
+2025-10-21,2025-10,0,0,0,True,True,,4.404,406.0,False
+2025-10-22,2025-10,0,0,0,True,True,,3.434,350.0,False
+2025-10-23,2025-10,0,0,0,True,True,,1.067,364.0,False
+2025-10-24,2025-10,0,0,0,True,True,,3.309,386.0,False
+2025-10-25,2025-10,0,0,0,True,True,,2.9515,386.0,False
+2025-10-26,2025-10,0,0,0,True,True,,0.573,340.0,False
+2025-10-27,2025-10,0,0,0,True,True,,3.054,368.0,False
+2025-10-28,2025-10,13,13,0,False,False,moins de 90 creneaux valides,3.83175,,True
+2025-10-29,2025-10,0,0,0,True,True,,2.639,398.0,False
+2025-10-30,2025-10,0,0,0,True,True,,3.92175,338.0,False
+2025-10-31,2025-10,0,0,0,True,True,,2.2395,386.0,False
+2025-11-01,2025-11,0,0,0,True,True,,2.845,410.0,False
+2025-11-02,2025-11,0,0,0,True,True,,3.2795,372.0,False
+2025-11-03,2025-11,0,0,0,True,True,,3.769,346.0,False
+2025-11-04,2025-11,0,0,0,True,True,,3.1485,372.0,False
+2025-11-05,2025-11,0,0,0,True,True,,3.703,364.0,False
+2025-11-06,2025-11,0,0,0,True,True,,2.015,352.0,False
+2025-11-07,2025-11,0,0,0,True,True,,2.153,334.0,False
+2025-11-08,2025-11,0,0,0,True,True,,1.71675,344.0,False
+2025-11-09,2025-11,0,0,0,True,True,,2.3725,374.0,False
+2025-11-10,2025-11,0,0,0,True,True,,3.612,348.0,False
+2025-11-11,2025-11,0,0,0,True,True,,3.5035,352.0,False
+2025-11-12,2025-11,0,0,0,True,True,,2.05,390.0,False
+2025-11-13,2025-11,0,0,0,True,True,,1.075,334.0,False
+2025-11-14,2025-11,0,0,0,True,True,,1.216,346.0,False
+2025-11-15,2025-11,0,0,0,True,True,,1.10075,354.0,False
+2025-11-16,2025-11,0,0,0,True,True,,1.491,416.0,False
+2025-11-17,2025-11,0,0,0,True,True,,1.348,410.0,False
+2025-11-18,2025-11,0,0,0,True,True,,1.628,338.0,False
+2025-11-19,2025-11,0,0,0,True,True,,1.93825,364.0,False
+2025-11-20,2025-11,0,0,0,True,True,,3.119,370.0,False
+2025-11-21,2025-11,0,0,0,True,True,,0.9925,362.0,False
+2025-11-22,2025-11,0,0,0,True,True,,3.025,360.0,False
+2025-11-23,2025-11,0,0,0,True,True,,2.93,374.0,False
+2025-11-24,2025-11,0,0,0,True,True,,3.643,384.0,False
+2025-11-25,2025-11,0,0,0,True,True,,4.24625,356.0,False
+2025-11-26,2025-11,0,0,0,True,True,,2.202,338.0,False
+2025-11-27,2025-11,0,0,0,True,True,,8.4055,636.0,False
+2025-11-28,2025-11,0,0,0,True,True,,8.927,534.0,False
+2025-11-29,2025-11,0,0,0,True,True,,5.008,570.0,False
+2025-11-30,2025-11,0,0,0,True,True,,0.019,8.0,False
+2025-12-01,2025-12,0,0,0,True,True,,0.004,6.0,False
+2025-12-02,2025-12,7,7,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-03,2025-12,3,3,0,False,False,trou de plus de 30 min,0.0,,True
+2025-12-04,2025-12,0,0,0,True,False,,0.0,0.0,False
+2025-12-05,2025-12,0,0,0,True,False,,0.0,0.0,False
+2025-12-06,2025-12,0,0,0,True,False,,0.0,0.0,False
+2025-12-07,2025-12,0,0,0,True,False,,0.0,0.0,False
+2025-12-08,2025-12,0,0,0,True,False,,0.0,0.0,False
+2025-12-09,2025-12,3,3,0,False,False,trou de plus de 30 min,0.8795,,False
+2025-12-10,2025-12,0,0,0,True,True,,3.9155,348.0,False
+2025-12-11,2025-12,0,0,0,True,True,,2.198,348.0,False
+2025-12-12,2025-12,0,0,0,True,True,,3.25225,386.0,False
+2025-12-13,2025-12,0,0,0,True,True,,1.8395,350.0,False
+2025-12-14,2025-12,0,0,0,True,True,,1.4195,360.0,False
+2025-12-15,2025-12,93,93,0,False,False,moins de 90 creneaux valides,0.0015,,True
+2025-12-16,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-17,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-18,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-19,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-20,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-21,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-22,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-23,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-24,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-25,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-26,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-27,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-28,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-29,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-30,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2025-12-31,2025-12,96,96,0,False,False,moins de 90 creneaux valides,0.0,,True
+2026-01-01,2026-01,8,5,0,False,False,moins de 90 creneaux valides,4.9845,,True
+2026-01-02,2026-01,0,0,0,True,True,,5.98225,374.0,False
+2026-01-03,2026-01,0,0,0,True,True,,2.84625,382.0,False
+2026-01-04,2026-01,28,28,0,False,False,moins de 90 creneaux valides,3.977,,True
+2026-01-05,2026-01,30,29,0,False,False,moins de 90 creneaux valides,3.9965,,True
+2026-01-06,2026-01,56,46,0,False,False,moins de 90 creneaux valides,3.222,,True
+2026-01-07,2026-01,39,36,0,False,False,moins de 90 creneaux valides,3.605,,True
+2026-01-08,2026-01,40,29,0,False,False,moins de 90 creneaux valides,3.67275,,True
+2026-01-09,2026-01,59,40,0,False,False,moins de 90 creneaux valides,3.093,,True
+2026-01-10,2026-01,41,41,0,False,False,moins de 90 creneaux valides,2.943,,True
+2026-01-11,2026-01,0,0,0,True,True,,3.98325,382.0,False
+2026-01-12,2026-01,10,7,0,False,False,moins de 90 creneaux valides,5.7635,,True
+2026-01-13,2026-01,0,0,0,True,True,,6.2465,406.0,False
+2026-01-14,2026-01,0,0,0,True,True,,5.749,426.0,False
+2026-01-15,2026-01,3,3,0,False,False,trou de plus de 30 min,6.3015,,True
+2026-01-16,2026-01,0,0,0,True,True,,5.6215,424.0,False
+2026-01-17,2026-01,0,0,0,True,True,,4.983,364.0,False
+2026-01-18,2026-01,0,0,0,True,True,,5.4895,388.0,False
+2026-01-19,2026-01,0,0,0,True,True,,5.981,388.0,False
+2026-01-20,2026-01,8,8,0,False,False,moins de 90 creneaux valides,5.86575,,True
+2026-01-21,2026-01,0,0,0,True,True,,6.771,402.0,False
+2026-01-22,2026-01,0,0,0,True,True,,5.4335,380.0,False
+2026-01-23,2026-01,21,21,0,False,False,moins de 90 creneaux valides,3.9475,,True
+2026-01-24,2026-01,0,0,0,True,True,,6.02575,384.0,False
+2026-01-25,2026-01,0,0,0,True,True,,3.14125,388.0,False
+2026-01-26,2026-01,0,0,0,True,True,,6.184,430.0,False
+2026-01-27,2026-01,0,0,0,True,True,,6.436,372.0,False
+2026-01-28,2026-01,0,0,0,True,True,,6.808,424.0,False
+2026-01-29,2026-01,0,0,0,True,True,,5.994,430.0,False
+2026-01-30,2026-01,9,6,0,False,False,moins de 90 creneaux valides,7.2905,,True
+2026-01-31,2026-01,6,6,0,False,False,trou de plus de 30 min,5.18975,,True
+2026-02-01,2026-02,93,93,0,False,False,moins de 90 creneaux valides,0.019,,True
+2026-02-02,2026-02,3,3,0,False,False,trou de plus de 30 min,4.61075,,True
+2026-02-03,2026-02,10,10,0,False,False,moins de 90 creneaux valides,6.999,,True
+2026-02-04,2026-02,0,0,0,True,True,,7.73825,452.0,False
+2026-02-05,2026-02,0,0,0,True,True,,6.93,464.0,False
+2026-02-06,2026-02,0,0,0,True,True,,6.67075,420.0,False
+2026-02-07,2026-02,0,0,0,True,True,,4.941,408.0,False
+2026-02-08,2026-02,0,0,0,True,True,,7.23225,456.0,False
+2026-02-09,2026-02,16,16,0,False,False,moins de 90 creneaux valides,5.2875,,True
+2026-02-10,2026-02,34,34,0,False,False,moins de 90 creneaux valides,4.2045,,True
+2026-02-11,2026-02,0,0,0,True,True,,5.6695,376.0,False
+2026-02-12,2026-02,0,0,0,True,True,,5.101,404.0,False
+2026-02-13,2026-02,0,0,0,True,True,,5.101,360.0,False
+2026-02-14,2026-02,0,0,0,True,True,,3.9225,334.0,False
+2026-02-15,2026-02,0,0,0,True,True,,1.3565,340.0,False
+2026-02-16,2026-02,0,0,0,True,True,,5.845,434.0,False
+2026-02-17,2026-02,0,0,0,True,True,,6.5515,414.0,False
+2026-02-18,2026-02,0,0,0,True,True,,5.8245,422.0,False
+2026-02-19,2026-02,0,0,0,True,True,,5.694,398.0,False
+2026-02-20,2026-02,0,0,0,True,True,,7.5025,396.0,False
+2026-02-21,2026-02,0,0,0,True,True,,4.54275,400.0,False
+2026-02-22,2026-02,0,0,0,True,True,,6.7535,396.0,False
+2026-02-23,2026-02,11,6,0,False,False,moins de 90 creneaux valides,2.4415,,True
+2026-02-24,2026-02,0,0,0,True,True,,4.89,386.0,False
+2026-02-25,2026-02,0,0,0,True,True,,7.708,394.0,False
+2026-02-26,2026-02,0,0,0,True,True,,6.8615,360.0,False
+2026-02-27,2026-02,4,4,0,False,False,trou de plus de 30 min,6.992,,True
+2026-02-28,2026-02,0,0,0,True,True,,2.86525,330.0,False
+2026-03-01,2026-03,0,0,0,True,True,,1.037,326.0,False
+2026-03-02,2026-03,0,0,0,True,True,,6.399,410.0,False
+2026-03-03,2026-03,0,0,0,True,True,,6.04125,356.0,False
+2026-03-04,2026-03,0,0,0,True,True,,6.92,340.0,False
+2026-03-05,2026-03,13,13,0,False,False,moins de 90 creneaux valides,6.607,,True
+2026-03-06,2026-03,0,0,0,True,True,,7.64425,402.0,False
+2026-03-07,2026-03,93,93,0,False,False,moins de 90 creneaux valides,0.2425,,True
+2026-03-08,2026-03,3,3,0,False,False,trou de plus de 30 min,6.4125,,True
+2026-03-09,2026-03,45,45,0,False,False,moins de 90 creneaux valides,3.97575,,True
+2026-03-10,2026-03,0,0,0,True,True,,5.10475,372.0,False
+2026-03-11,2026-03,0,0,0,True,True,,6.5115,360.0,False
+2026-03-12,2026-03,0,0,0,True,True,,6.62425,342.0,False
+2026-03-13,2026-03,0,0,0,True,True,,6.1955,388.0,False
+2026-03-14,2026-03,0,0,0,True,True,,6.43275,356.0,False
+2026-03-15,2026-03,0,0,0,True,True,,4.5285,382.0,False
+2026-03-16,2026-03,0,0,0,True,True,,4.5905,366.0,False
+2026-03-17,2026-03,0,0,0,True,True,,6.56925,346.0,False
+2026-03-18,2026-03,0,0,0,True,True,,6.5725,348.0,False
+2026-03-19,2026-03,93,93,0,False,False,moins de 90 creneaux valides,0.2395,,True
+2026-03-20,2026-03,3,3,0,False,False,trou de plus de 30 min,6.117,,True
+2026-03-21,2026-03,0,0,0,True,True,,6.37275,398.0,False
+2026-03-22,2026-03,0,0,0,True,True,,7.37225,382.0,False
+2026-03-23,2026-03,0,0,0,True,True,,5.52225,348.0,False
+2026-03-24,2026-03,0,0,0,True,True,,6.249,350.0,False
+2026-03-25,2026-03,7,4,0,False,False,moins de 90 creneaux valides,7.06125,,True
+2026-03-26,2026-03,28,28,0,False,False,moins de 90 creneaux valides,5.0465,,True
+2026-03-27,2026-03,0,0,0,True,True,,7.8455,400.0,False
+2026-03-28,2026-03,0,0,0,True,True,,6.012,414.0,False
+2026-03-29,2026-03,0,0,0,True,True,,4.929,364.0,False
+2026-03-30,2026-03,0,0,0,True,True,,4.98475,366.0,False
+2026-03-31,2026-03,0,0,0,True,True,,4.579,350.0,False
+2026-04-01,2026-04,0,0,0,True,True,,3.3455,334.0,False
+2026-04-02,2026-04,48,48,0,False,False,moins de 90 creneaux valides,2.449,,True
+2026-04-03,2026-04,52,52,0,False,False,moins de 90 creneaux valides,3.11625,,True
+2026-04-04,2026-04,0,0,0,True,True,,3.77775,354.0,False
+2026-04-05,2026-04,0,0,0,True,True,,2.883,354.0,False
+2026-04-06,2026-04,0,0,0,True,True,,3.308,358.0,False
+2026-04-07,2026-04,0,0,0,True,True,,3.10325,352.0,False
+2026-04-08,2026-04,0,0,0,True,True,,2.214,320.0,False
+2026-04-09,2026-04,8,5,0,False,False,moins de 90 creneaux valides,1.762,,True
+2026-04-10,2026-04,0,0,0,True,True,,1.1985,342.0,False
+2026-04-11,2026-04,0,0,0,True,True,,2.5395,346.0,False
+2026-04-12,2026-04,0,0,0,True,True,,3.837,362.0,False
+2026-04-13,2026-04,1,1,0,False,False,trou de plus de 30 min,0.8885,,True
+2026-04-14,2026-04,5,3,0,False,False,trou de plus de 30 min,4.752,,True
+2026-04-15,2026-04,0,0,0,True,True,,2.57325,312.0,False
+2026-04-16,2026-04,0,0,0,True,True,,4.40025,402.0,False
+2026-04-17,2026-04,0,0,0,True,True,,4.10575,366.0,False
+2026-04-18,2026-04,0,0,0,True,True,,3.7755,356.0,False
+2026-04-19,2026-04,0,0,0,True,True,,2.47525,352.0,False
+2026-04-20,2026-04,0,0,0,True,True,,1.951,336.0,False
+2026-04-21,2026-04,12,12,0,False,False,moins de 90 creneaux valides,1.53,,True
+2026-04-22,2026-04,0,0,0,True,True,,2.418,350.0,False
+2026-04-23,2026-04,0,0,0,True,True,,3.6155,378.0,False
+2026-04-24,2026-04,10,10,0,False,False,moins de 90 creneaux valides,3.693,,True
+2026-04-25,2026-04,38,23,0,False,False,moins de 90 creneaux valides,2.405,,True
+2026-04-26,2026-04,62,45,0,False,False,moins de 90 creneaux valides,1.5505,,True
+2026-04-27,2026-04,0,0,0,True,True,,2.1815,347.0,False
+2026-04-28,2026-04,23,23,0,False,False,moins de 90 creneaux valides,2.311,,True
+2026-04-29,2026-04,0,0,0,True,True,,2.188,364.0,False
+2026-04-30,2026-04,0,0,0,True,True,,1.9285,376.0,False
+2026-05-01,2026-05,0,0,0,True,True,,0.4255,364.0,False
+2026-05-02,2026-05,0,0,0,True,True,,1.1895,362.0,False
+2026-05-03,2026-05,4,4,0,False,False,trou de plus de 30 min,1.73025,,True
+2026-05-04,2026-05,0,0,0,True,True,,3.6445,316.0,False
+2026-05-05,2026-05,0,0,0,True,True,,2.17925,334.0,False
+2026-05-06,2026-05,38,25,0,False,False,moins de 90 creneaux valides,2.0535,,False
+2026-05-07,2026-05,61,46,0,False,False,moins de 90 creneaux valides,0.0495,,True
+2026-05-08,2026-05,4,4,0,False,False,trou de plus de 30 min,1.2245,,True
+2026-05-09,2026-05,0,0,0,True,True,,1.377,338.0,False
+2026-05-10,2026-05,0,0,0,True,True,,2.9955,366.0,False
+2026-05-11,2026-05,4,4,0,False,False,trou de plus de 30 min,3.9235,,True
+2026-05-12,2026-05,22,11,0,False,False,moins de 90 creneaux valides,3.99525,,True
+2026-05-13,2026-05,5,5,0,False,False,trou de plus de 30 min,2.1465,,False
+2026-05-14,2026-05,0,0,0,True,True,,4.4665,390.0,False
+2026-05-15,2026-05,51,16,0,False,False,moins de 90 creneaux valides,0.96125,,False
+2026-05-16,2026-05,3,3,0,False,False,trou de plus de 30 min,5.304,,False
+2026-05-17,2026-05,59,30,0,False,False,moins de 90 creneaux valides,1.9135,,True
+2026-05-18,2026-05,3,3,0,False,False,trou de plus de 30 min,0.2115,,True
+2026-05-19,2026-05,0,0,0,True,True,,1.997,324.0,False
+2026-05-20,2026-05,0,0,0,True,True,,0.588,338.0,False
+2026-05-21,2026-05,0,0,0,True,True,,0.5965,352.0,False
+2026-05-22,2026-05,0,0,0,True,False,,0.0,0.0,False
+2026-05-23,2026-05,0,0,0,True,True,,2.147,340.0,False
+2026-05-24,2026-05,0,0,0,True,True,,2.4485,336.0,False
+2026-05-25,2026-05,0,0,0,True,True,,0.104,332.0,False
+2026-05-26,2026-05,0,0,0,True,True,,0.516,338.0,False
+2026-05-27,2026-05,0,0,0,True,True,,1.887,336.0,False
+2026-05-28,2026-05,0,0,0,True,True,,1.598,332.0,False
+2026-05-29,2026-05,0,0,0,True,True,,0.931,316.0,False
+2026-05-30,2026-05,0,0,0,True,True,,1.3255,344.0,False
+2026-05-31,2026-05,0,0,0,True,True,,0.396,312.0,False
+2026-06-01,2026-06,0,0,0,True,True,,0.4575,348.0,False
+2026-06-02,2026-06,0,0,0,True,True,,0.232,334.0,False
+2026-06-03,2026-06,0,0,0,True,True,,0.685,374.0,False
+2026-06-04,2026-06,0,0,0,True,True,,0.03,14.0,False
+2026-06-05,2026-06,0,0,0,True,True,,5.297,372.0,False
+2026-06-06,2026-06,0,0,0,True,True,,3.463,312.0,False
+2026-06-07,2026-06,0,0,0,True,False,,0.0,0.0,False
+2026-06-08,2026-06,0,0,0,True,True,,1.1565,324.0,False
+2026-06-09,2026-06,0,0,0,True,True,,0.4205,296.0,False
+2026-06-10,2026-06,0,0,0,True,True,,0.563,344.0,False
+2026-06-11,2026-06,0,0,0,True,True,,0.357,352.0,False
+2026-06-12,2026-06,0,0,0,True,True,,0.074,158.0,False
+2026-06-13,2026-06,0,0,0,True,True,,0.055,12.0,False
+2026-06-14,2026-06,0,0,0,True,True,,0.06,10.0,False
+2026-06-15,2026-06,0,0,0,True,True,,0.2775,290.0,False
+2026-06-16,2026-06,0,0,0,True,True,,0.177,308.0,False
+2026-06-17,2026-06,0,0,0,True,True,,0.4885,358.0,False
+2026-06-18,2026-06,0,0,0,True,True,,0.0105,10.0,False
+2026-06-19,2026-06,0,0,0,True,True,,0.224,328.0,False
+2026-06-20,2026-06,0,0,0,True,True,,0.477,356.0,False
+2026-06-21,2026-06,0,0,0,True,True,,0.0865,178.0,False
+2026-06-22,2026-06,0,0,0,True,True,,0.101,114.0,False
+2026-06-23,2026-06,0,0,0,True,True,,0.16675,248.0,False
+2026-06-24,2026-06,0,0,0,True,True,,0.0395,16.0,False
+2026-06-25,2026-06,0,0,0,True,True,,0.0185,10.0,False
+2026-06-26,2026-06,0,0,0,True,True,,0.547,360.0,False
+2026-06-27,2026-06,0,0,0,True,True,,3.3185,360.0,False
+2026-06-28,2026-06,0,0,0,True,True,,0.6235,332.0,False
+2026-06-29,2026-06,26,26,0,False,False,moins de 90 creneaux valides,1.5635,,True
+2026-06-30,2026-06,0,0,0,True,True,,0.2745,314.0,False
+2026-07-01,2026-07,0,0,0,True,True,,0.5065,366.0,False
+2026-07-02,2026-07,0,0,0,True,True,,3.8075,354.0,False
+2026-07-03,2026-07,0,0,0,True,True,,3.10475,328.0,False
+2026-07-04,2026-07,0,0,0,True,True,,2.899,346.0,False
+2026-07-05,2026-07,0,0,0,True,True,,3.1595,326.0,False
+2026-07-06,2026-07,0,0,0,True,True,,0.037,10.0,False
+2026-07-07,2026-07,41,41,0,False,False,moins de 90 creneaux valides,0.02,,True
+2026-07-08,2026-07,46,46,0,False,False,moins de 90 creneaux valides,1.264,,True
+2026-07-09,2026-07,0,0,0,True,True,,0.0725,18.0,False
+2026-07-10,2026-07,4,4,0,False,False,trou de plus de 30 min,0.0645,,True
+2026-07-11,2026-07,0,0,0,True,True,,0.493,356.0,False
+2026-07-12,2026-07,0,0,0,True,True,,0.76,346.0,False
+2026-07-13,2026-07,0,0,0,True,True,,0.5615,372.0,False
+2026-07-14,2026-07,0,0,0,True,True,,0.013,6.0,False
+2026-07-15,2026-07,0,0,0,True,True,,0.048,10.0,False
+2026-07-16,2026-07,0,0,0,True,True,,0.078,18.0,False
+2026-07-17,2026-07,0,0,0,True,True,,1.131,356.0,False
+2026-07-18,2026-07,5,5,0,False,False,trou de plus de 30 min,2.504,,True
+2026-07-19,2026-07,0,0,0,True,True,,2.7595,350.0,False
+2026-07-20,2026-07,0,0,0,True,True,,0.081,20.0,False
+2026-07-21,2026-07,0,0,0,True,True,,0.653,364.0,False
+2026-07-22,2026-07,0,0,0,True,True,,3.0345,342.0,False
+2026-07-23,2026-07,0,0,0,True,True,,0.026,18.0,False
+2026-07-24,2026-07,8,8,0,False,False,moins de 90 creneaux valides,0.4635,,True
+2026-07-25,2026-07,19,19,0,False,False,moins de 90 creneaux valides,1.4695,,True
+2026-07-26,2026-07,0,0,0,True,True,,3.4775,318.0,False
+2026-07-27,2026-07,9,9,0,False,False,moins de 90 creneaux valides,0.0635,,True
+2026-07-28,2026-07,0,0,0,True,True,,0.375,300.0,False
+2026-07-29,2026-07,0,0,0,True,True,,0.04,10.0,False
+2026-07-30,2026-07,0,0,0,True,True,,0.1445,20.0,False
+2026-07-31,2026-07,93,93,0,False,False,moins de 90 creneaux valides,0.006,,True

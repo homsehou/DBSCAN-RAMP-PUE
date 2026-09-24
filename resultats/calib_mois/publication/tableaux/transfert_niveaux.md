@@ -1,0 +1,13 @@
+**Niveau d'usage, client par client**
+
+| famille | client | cibles | heures éq. min | heures éq. max | énergie (kWh/j) | coefficient |
+|---|---|---|---|---|---|---|
+| froid | 0017SAM | 14 | 0,64 | 4,24 | 0,86 | 0,50 |
+| froid | 0018SAM | 11 | 0,51 | 3,25 | 0,56 | 0,68 |
+| froid | 0035SAM | 10 | 0,36 | 0,86 | 0,16 | 0,20 |
+| froid | 0151GBO | 16 | 1,40 | 14,23 | 2,47 | 0,65 |
+| moulin | 0016GBO | 7 | 0,04 | 0,33 | 1,31 | 0,48 |
+| moulin | 0043SAM | 11 | 0,67 | 3,72 | 14,19 | 0,56 |
+| moulin | 0097SAM | 12 | 1,12 | 2,66 | 12,30 | 0,48 |
+| moulin | 0154GBO | 11 | 0,36 | 1,08 | 5,47 | 0,29 |
+| couveuse | 0152GBO | 6 | 7,39 | 14,86 | 2,25 | 0,67 |

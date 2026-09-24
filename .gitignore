@@ -9,6 +9,10 @@ __pycache__/
 # Per-client execution logs (large, regenerated at every run). The verification
 # logs at the root of resultats/ stay under version control on purpose.
 resultats/logs/
+resultats/*/logs/
+
+# Local replay of the whole chain (python src/run.py --prefix rejeu/)
+resultats/rejeu/
 
 .DS_Store
 launch_jupyter.sh

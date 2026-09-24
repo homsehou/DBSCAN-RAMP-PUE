@@ -1,0 +1,16 @@
+**Fiche de saisie RAMP par type : valeur retenue, et plage observée**
+
+| paramètre RAMP | froid | moulin | couveuse |
+|---|---|---|---|
+| func_cycle (min) | 15 (36/51) | 15 (37/41) | 15 (5/6) |
+| période du cycle (min) | 30 (30/51) | 15 (23/41) | 30 (3/6) |
+| random_var_w | 0 (27/51) | 0.1 (23/41) | 0 (6/6) |
+| continuous_duty_cycle | 1 (51/51) | 0 (27/41) | 1 (6/6) |
+| nombre de fenêtres | 2 (25/51) | 1 (17/41) | 1 (6/6) |
+| étendue des fenêtres (h) | 21,2  [13,2 à 24,0] | 13,5  [6,0 à 15,8] | 24,0  [24,0 à 24,0] |
+| func_time / étendue | 1,00  [0,72 à 1,00] | 0,96  [0,67 à 1,00] | 1,00  [1,00 à 1,00] |
+| p_i2 / plaque | 0,02  [0,00 à 0,05] | 0,00  [0,00 à 0,00] | 0,12  [0,08 à 0,12] |
+| t_i1 du cycle haut (min) | 10  [2 à 15] | 10  [3 à 13] | 14  [10 à 15] |
+| rapport cyclique moyen | 0,17  [0,02 à 0,67] | 0,15  [0,02 à 0,44] | 0,47  [0,30 à 0,68] |
+| occasional_use | 1,00  [0,17 à 1,00] | 1,00  [0,17 à 1,00] | 1,00  [1,00 à 1,00] |
+| heures équivalentes par jour | 1,7  [0,4 à 14,2] | 1,1  [0,0 à 3,7] | 11,3  [7,4 à 14,9] |
