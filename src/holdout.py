@@ -1,4 +1,9 @@
-"""Hold-out check of the seasonal chain: calibration on the even calendar weeks, judgement on the odd weeks.
+"""Hold-out check of the seasonal chain: calibration on one part of the days, judgement on the other part.
+
+Two splits (--split):
+  semaines: calibration on the even calendar weeks, judgement on the odd weeks (35 targets);
+  annees  : calibration on the first campaign year of the season, judgement on the last one
+            (targets with at least 10 retained days in two different years only).
 
 Same days as the published targets (same DBSCAN retention), split by the parity of the calendar
 week counted from Monday 2024-01-01. Whole weeks rather than alternate days, so that two days of the
@@ -7,10 +12,10 @@ even weeks; the final model is then judged on the odd weeks with the validation 
 chain (thresholds from the noise of the odd weeks). Reference: the gap between the means of the
 two halves of measured days, which is the best a model fitted on one half can reach on the other.
 
-Usage: python holdout.py [--workers 15] [--from 1] [--to 3]
-  1  targets of the two halves (step 2)          resultats/cibles_calage/, resultats/cibles_test/
-  2  seasonal chain on the even weeks (steps 4 to 7)       resultats/holdout/reference_saison/
-  3  judgement on the odd weeks                            resultats/holdout/validation_hors_echantillon.csv
+Usage: python holdout.py [--split semaines|annees] [--workers 15] [--from 1] [--to 3]
+  1  targets of the two parts (step 2)          resultats/cibles_calage/ and cibles_test/ (annees: cibles_annee_...)
+  2  seasonal chain on the calibration part (steps 4 to 7)   resultats/holdout/reference_saison/ (annees: holdout_annee/)
+  3  judgement on the test part                              <same folder>/validation_hors_echantillon.csv
 Published results (resultats/cibles_v9, reference_saison, calib_mois) read only, never written.
 """
 import argparse
@@ -27,14 +32,17 @@ import validation as V
 
 # Command-line arguments and folders of the check
 parser = argparse.ArgumentParser()
+parser.add_argument("--split", default="semaines", choices=["semaines", "annees"])
 parser.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
 parser.add_argument("--from", dest="start", type=int, default=1)
 parser.add_argument("--to", dest="end", type=int, default=3)
 args = parser.parse_args()
 HERE = Path(__file__).resolve().parent
 PUBLISHED = S.RESULTS / "cibles_v9"
-HALVES = {"cibles_calage": 0, "cibles_test": 1}
-OUT = S.RESULTS / "holdout"
+TAG = "" if args.split == "semaines" else "annee_"
+HALVES = {f"cibles_{TAG}calage": 0, f"cibles_{TAG}test": 1}
+CALIBRATION, TEST = HALVES
+OUT = S.RESULTS / ("holdout" if args.split == "semaines" else "holdout_annee")
 
 # Targets of the two halves: step 2 on the days of one parity of weeks, daily profiles copied
 if args.start <= 1 <= args.end:
@@ -42,14 +50,14 @@ if args.start <= 1 <= args.end:
         (S.RESULTS / folder).mkdir(exist_ok=True)
         shutil.copytree(PUBLISHED / "journees", S.RESULTS / folder / "journees", dirs_exist_ok=True)
         shutil.copy(PUBLISHED / "puissances_mesurees.csv", S.RESULTS / folder)
-        env = dict(os.environ, GRAIN="saison", CIBLES=folder, MOITIE=str(half))
+        env = dict(os.environ, GRAIN="saison", CIBLES=folder, MOITIE=str(half), DECOUPAGE=args.split)
         print(f"\n=== step2_targets.py, weeks of parity {half} into resultats/{folder}", flush=True)
         subprocess.run([sys.executable, str(HERE / "step2_targets.py")], env=env, check=True)
 
 # Seasonal chain on the even weeks, unchanged (steps 4 to 7 of run.py)
 if args.start <= 2 <= args.end:
-    env = dict(os.environ, CIBLES="cibles_calage")
-    subprocess.run([sys.executable, str(HERE / "run.py"), "--from", "4", "--to", "7", "--prefix", "holdout/",
+    env = dict(os.environ, CIBLES=CALIBRATION)
+    subprocess.run([sys.executable, str(HERE / "run.py"), "--from", "4", "--to", "7", "--prefix", f"{OUT.name}/",
                     "--workers", str(args.workers)], env=env, check=True)
 
 
@@ -84,7 +92,7 @@ if args.start <= 3 <= args.end:
         if h is None:
             rows.append({"cible": name, "famille": p["famille"], "statut": "moitie de test trop courte"})
             continue
-        cal, test = h["cibles_calage"], h["cibles_test"]
+        cal, test = h[CALIBRATION], h[TEST]
         sim = np.load(OUT / "reference_saison" / f"{name}_profil.npy")
         m, local, verdict, missed = judge(test["noise"]["cible"], sim, test["noise"], test["p95"])
         floor, floor_local, _, floor_missed = judge(test["noise"]["cible"], cal["noise"]["cible"], test["noise"], test["p95"])

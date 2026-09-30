@@ -31,7 +31,8 @@ import validation as V
 # Grain of the targets and output folders
 OUT = S.TARGETS
 GRAIN = os.environ.get("GRAIN", "saison")      # "mois" for one target per calendar month
-HALF = int(os.environ["MOITIE"]) if "MOITIE" in os.environ else None   # parity of the weeks kept, hold-out check
+HALF = int(os.environ["MOITIE"]) if "MOITIE" in os.environ else None   # side kept, hold-out check (0 calibration, 1 test)
+SPLIT = os.environ.get("DECOUPAGE", "semaines")                    # hold-out split: semaines or annees
 for d in (f"clusters_{GRAIN}", f"bruit_{GRAIN}"):
     (OUT / d).mkdir(exist_ok=True)
 SLOTS = [f"slot_{i}" for i in range(S.SLOTS_PER_DAY)]
@@ -188,9 +189,18 @@ for client, family in S.CLIENTS.items():
         kept_all = flagged_share > MAX_FLAGGED_SHARE
         retained = np.ones(len(X), bool) if kept_all else lab != -1
         if HALF is not None:
-            # Hold-out check: retained days of one parity of calendar weeks only (weeks from Monday 2024-01-01)
-            week = (pd.to_datetime(service.jour) - pd.Timestamp("2024-01-01")).dt.days // 7
-            retained &= (week.to_numpy() % 2) == HALF
+            # Hold-out check: one side of the retained days, split by parity of calendar weeks (weeks from
+            # Monday 2024-01-01) or by campaign year (first year for the calibration, last year for the test)
+            day = pd.to_datetime(service.jour)
+            if SPLIT == "annees":
+                # Campaign of a day: the dry season from November to April counted in the year of its November
+                year = (day.dt.year - ((day.dt.month <= 4) & (block.saison.iloc[0] == "Saison seche"))).to_numpy()
+                n = pd.Series(year[retained]).value_counts()
+                years = sorted(n[n >= S.MIN_TARGET_DAYS].index)
+                retained &= (year == (years[0] if HALF == 0 else years[-1])) if len(years) >= 2 else False
+            else:
+                week = (day - pd.Timestamp("2024-01-01")).dt.days // 7
+                retained &= (week.to_numpy() % 2) == HALF
         # Sensitivity of the flagged share and of the energy bias to the radius
         for r in ("knee", 80, 90, 95):
             l2 = np.full(len(X), -3)
