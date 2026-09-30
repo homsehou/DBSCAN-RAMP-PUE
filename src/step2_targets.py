@@ -31,6 +31,7 @@ import validation as V
 # Grain of the targets and output folders
 OUT = S.TARGETS
 GRAIN = os.environ.get("GRAIN", "saison")      # "mois" for one target per calendar month
+HALF = int(os.environ["MOITIE"]) if "MOITIE" in os.environ else None   # parity of the weeks kept, hold-out check
 for d in (f"clusters_{GRAIN}", f"bruit_{GRAIN}"):
     (OUT / d).mkdir(exist_ok=True)
 SLOTS = [f"slot_{i}" for i in range(S.SLOTS_PER_DAY)]
@@ -186,6 +187,10 @@ for client, family in S.CLIENTS.items():
         flagged_share = float(E[lab == -1].sum() / max(E.sum(), 1e-9))
         kept_all = flagged_share > MAX_FLAGGED_SHARE
         retained = np.ones(len(X), bool) if kept_all else lab != -1
+        if HALF is not None:
+            # Hold-out check: retained days of one parity of calendar weeks only (weeks from Monday 2024-01-01)
+            week = (pd.to_datetime(service.jour) - pd.Timestamp("2024-01-01")).dt.days // 7
+            retained &= (week.to_numpy() % 2) == HALF
         # Sensitivity of the flagged share and of the energy bias to the radius
         for r in ("knee", 80, 90, 95):
             l2 = np.full(len(X), -3)

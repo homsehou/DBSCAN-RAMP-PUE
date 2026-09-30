@@ -15,7 +15,7 @@ from scipy.signal import find_peaks
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 RESULTS = ROOT / "resultats"
-TARGETS = RESULTS / "cibles_v9"
+TARGETS = RESULTS / os.environ.get("CIBLES", "cibles_v9")   # other target folder for the hold-out check
 
 # Time grid of the study: slots of 15 minutes, hence 96 slots per day.
 SLOT_MIN = 15
