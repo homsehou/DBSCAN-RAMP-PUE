@@ -1,0 +1,75 @@
+
+=== step4_calibrate.py: 10 targets into resultats/holdout_annee/calib_directe9
+   1/10 0017SAM__Saison_seche_avant_2025-09-25 done
+   2/10 0018SAM__Saison_seche_avant_2025-10-02 done
+   3/10 0035SAM__Saison_des_pluies done
+   4/10 0035SAM__Saison_seche done
+   5/10 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   6/10 0043SAM__Saison_seche done
+   7/10 0097SAM__Saison_des_pluies done
+   8/10 0097SAM__Saison_seche done
+   9/10 0154GBO__Saison_des_pluies done
+   10/10 0154GBO__Saison_seche done
+
+=== step4_calibrate.py: 10 targets into resultats/holdout_annee/calib_directe10
+   1/10 0017SAM__Saison_seche_avant_2025-09-25 done
+   2/10 0018SAM__Saison_seche_avant_2025-10-02 done
+   3/10 0035SAM__Saison_des_pluies done
+   4/10 0035SAM__Saison_seche done
+   5/10 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   6/10 0043SAM__Saison_seche done
+   7/10 0097SAM__Saison_des_pluies done
+   8/10 0097SAM__Saison_seche done
+   9/10 0154GBO__Saison_des_pluies done
+   10/10 0154GBO__Saison_seche done
+
+=== step5_union.py holdout_annee/calib_union_9_10 holdout_annee/calib_directe9 holdout_annee/calib_directe10
+essai
+calib_directe10    6
+calib_directe9     4
+criteria met 83 / 100 | NRMSE mean 0.087 median 0.090 max 0.119 | 3 targets > 10 %
+verdict
+rejetee           6
+non verifiable    3
+validee           1
+
+=== step6_fft_arbitration.py: 10 targets into resultats/holdout_annee/arbitrage_fft
+   1/10 0017SAM__Saison_seche_avant_2025-09-25 done
+   2/10 0018SAM__Saison_seche_avant_2025-10-02 done
+   3/10 0035SAM__Saison_des_pluies done
+   4/10 0035SAM__Saison_seche done
+   5/10 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   6/10 0043SAM__Saison_seche done
+   7/10 0097SAM__Saison_des_pluies done
+   8/10 0097SAM__Saison_seche done
+   9/10 0154GBO__Saison_des_pluies done
+   10/10 0154GBO__Saison_seche done
+
+=== step4_calibrate.py: 4 targets into resultats/holdout_annee/essai_fft_grille
+   1/4 0018SAM__Saison_seche_avant_2025-10-02 done
+   2/4 0035SAM__Saison_des_pluies done
+   3/4 0035SAM__Saison_seche done
+   4/4 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+
+=== step7_final_reference.py holdout_annee/reference_saison holdout_annee/arbitrage_fft holdout_annee/essai_fft_grille
+source
+arbitrage_fft       9
+essai_fft_grille    1
+criteria met 84 / 100
+NRMSE mean 0.086 median 0.090 max 0.119 | 3 targets > 10 %
+FFT mean 0.155 median 0.173 max 0.249 | 3 targets <= 10 %
+energy |mean| 1.9 % max 3.5 %
+verdict
+rejetee           6
+non verifiable    3
+validee           1
+
+chain finished
+
+10 targets judged on the odd weeks (0 with a test half too short)
+verdicts on the calibration weeks: {'rejetee': 6, 'non verifiable': 3, 'validee': 1}
+verdicts on the test weeks       : {'rejetee': 8, 'non verifiable': 2}
+NRMSE: test mean 0.3485 (median 0.2359, max 1.4987); between halves mean 0.3533 (median 0.2407, max 1.5662); test within the halves gap for 7 targets
+err_E_pct: test mean 58.5126 (median 54.6876, max 213.4669); between halves mean 60.1845 (median 53.9088, max 224.8559); test within the halves gap for 4 targets
+FFT_err: test mean 0.2368 (median 0.2225, max 0.4348); between halves mean 0.2212 (median 0.2356, max 0.3305); test within the halves gap for 5 targets
+18:44 FIN holdout annee (code 0)

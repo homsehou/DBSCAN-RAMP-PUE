@@ -1,0 +1,13 @@
+client,config,famille,quarts_heure_pleins,veille_W,plaque_W,en_marche,puissance_marche_W,marche_p95_W,source,coefficient
+0017SAM,avant,cold_chain,24953,8.0,276.0,1090,138.0,148.0,mesure,0.5
+0017SAM,depuis,cold_chain,7675,8.0,552.0,1954,352.0,412.0,mesure,0.64
+0018SAM,avant,cold_chain,27865,10.0,276.0,1393,188.0,224.0,mesure,0.68
+0018SAM,depuis,cold_chain,10746,8.0,496.0,534,361.0,416.0,mesure,0.73
+0035SAM,,cold_chain,13275,8.0,276.0,1105,56.0,68.0,mesure,0.2
+0151GBO,avant,cold_chain,6658,10.0,220.0,2546,144.0,198.0,mesure,0.65
+0151GBO,depuis,cold_chain,10969,10.0,440.0,6284,334.0,386.0,mesure,0.76
+0016GBO,,grain_milling,3345,10.0,7500.0,34,3600.0,,coefficient de famille,0.48
+0043SAM,,grain_milling,2623,6.0,7500.0,254,4233.0,4979.0,mesure,0.56
+0097SAM,,grain_milling,891,16.0,7350.0,119,3554.0,4932.5,mesure,0.48
+0154GBO,,grain_milling,300,12.0,7500.0,146,2147.0,3127.5,mesure,0.29
+0152GBO,active,poultry_incubation,7898,24.0,200.0,1474,134.0,200.0,mesure,0.67

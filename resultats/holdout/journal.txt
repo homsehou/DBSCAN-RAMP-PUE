@@ -1,0 +1,155 @@
+
+=== step4_calibrate.py: 35 targets into resultats/holdout/calib_directe9
+   1/35 0017SAM__Mai_avant_2025-09-25 done
+   2/35 0017SAM__Octobre_depuis_2025-09-25 done
+   3/35 0017SAM__Saison_des_pluies_avant_2025-09-25 done
+   4/35 0017SAM__Saison_seche_avant_2025-09-25 done
+   5/35 0017SAM__Saison_seche_depuis_2025-09-25 done
+   6/35 0018SAM__Octobre_depuis_2025-10-02 done
+   7/35 0018SAM__Saison_seche_avant_2025-10-02 done
+   8/35 0018SAM__Saison_seche_depuis_2025-10-02 done
+   9/35 0035SAM__Mai done
+   10/35 0035SAM__Octobre done
+   11/35 0035SAM__Saison_des_pluies done
+   12/35 0035SAM__Saison_seche done
+   13/35 0151GBO__Mai_avant_2025-09-17 done
+   14/35 0151GBO__Mai_depuis_2025-09-17 done
+   15/35 0151GBO__Octobre_depuis_2025-09-17 done
+   16/35 0151GBO__Saison_des_pluies_avant_2025-09-17 done
+   17/35 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   18/35 0151GBO__Saison_seche_avant_2025-09-17 done
+   19/35 0151GBO__Saison_seche_depuis_2025-09-17 done
+   20/35 0016GBO__Mai done
+   21/35 0016GBO__Saison_des_pluies done
+   22/35 0016GBO__Saison_seche done
+   23/35 0043SAM__Mai done
+   24/35 0043SAM__Saison_des_pluies done
+   25/35 0043SAM__Saison_seche done
+   26/35 0097SAM__Mai done
+   27/35 0097SAM__Octobre done
+   28/35 0097SAM__Saison_des_pluies done
+   29/35 0097SAM__Saison_seche done
+   30/35 0154GBO__Mai done
+   31/35 0154GBO__Octobre done
+   32/35 0154GBO__Saison_des_pluies done
+   33/35 0154GBO__Saison_seche done
+   34/35 0152GBO__Mai_active done
+   35/35 0152GBO__Saison_seche_active done
+
+=== step4_calibrate.py: 35 targets into resultats/holdout/calib_directe10
+   1/35 0017SAM__Mai_avant_2025-09-25 done
+   2/35 0017SAM__Octobre_depuis_2025-09-25 done
+   3/35 0017SAM__Saison_des_pluies_avant_2025-09-25 done
+   4/35 0017SAM__Saison_seche_avant_2025-09-25 done
+   5/35 0017SAM__Saison_seche_depuis_2025-09-25 done
+   6/35 0018SAM__Octobre_depuis_2025-10-02 done
+   7/35 0018SAM__Saison_seche_avant_2025-10-02 done
+   8/35 0018SAM__Saison_seche_depuis_2025-10-02 done
+   9/35 0035SAM__Mai done
+   10/35 0035SAM__Octobre done
+   11/35 0035SAM__Saison_des_pluies done
+   12/35 0035SAM__Saison_seche done
+   13/35 0151GBO__Mai_avant_2025-09-17 done
+   14/35 0151GBO__Mai_depuis_2025-09-17 done
+   15/35 0151GBO__Octobre_depuis_2025-09-17 done
+   16/35 0151GBO__Saison_des_pluies_avant_2025-09-17 done
+   17/35 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   18/35 0151GBO__Saison_seche_avant_2025-09-17 done
+   19/35 0151GBO__Saison_seche_depuis_2025-09-17 done
+   20/35 0016GBO__Mai done
+   21/35 0016GBO__Saison_des_pluies done
+   22/35 0016GBO__Saison_seche done
+   23/35 0043SAM__Mai done
+   24/35 0043SAM__Saison_des_pluies done
+   25/35 0043SAM__Saison_seche done
+   26/35 0097SAM__Mai done
+   27/35 0097SAM__Octobre done
+   28/35 0097SAM__Saison_des_pluies done
+   29/35 0097SAM__Saison_seche done
+   30/35 0154GBO__Mai done
+   31/35 0154GBO__Octobre done
+   32/35 0154GBO__Saison_des_pluies done
+   33/35 0154GBO__Saison_seche done
+   34/35 0152GBO__Mai_active done
+   35/35 0152GBO__Saison_seche_active done
+
+=== step5_union.py holdout/calib_union_9_10 holdout/calib_directe9 holdout/calib_directe10
+essai
+calib_directe10    20
+calib_directe9     15
+criteria met 284 / 350 | NRMSE mean 0.104 median 0.087 max 0.697 | 10 targets > 10 %
+verdict
+non verifiable    22
+rejetee            9
+validee            4
+
+=== step6_fft_arbitration.py: 35 targets into resultats/holdout/arbitrage_fft
+   1/35 0017SAM__Mai_avant_2025-09-25 done
+   2/35 0017SAM__Octobre_depuis_2025-09-25 done
+   3/35 0017SAM__Saison_des_pluies_avant_2025-09-25 done
+   4/35 0017SAM__Saison_seche_avant_2025-09-25 done
+   5/35 0017SAM__Saison_seche_depuis_2025-09-25 done
+   6/35 0018SAM__Octobre_depuis_2025-10-02 done
+   7/35 0018SAM__Saison_seche_avant_2025-10-02 done
+   8/35 0018SAM__Saison_seche_depuis_2025-10-02 done
+   9/35 0035SAM__Mai done
+   10/35 0035SAM__Octobre done
+   11/35 0035SAM__Saison_des_pluies done
+   12/35 0035SAM__Saison_seche done
+   13/35 0151GBO__Mai_avant_2025-09-17 done
+   14/35 0151GBO__Mai_depuis_2025-09-17 done
+   15/35 0151GBO__Octobre_depuis_2025-09-17 done
+   16/35 0151GBO__Saison_des_pluies_avant_2025-09-17 done
+   17/35 0151GBO__Saison_des_pluies_depuis_2025-09-17 done
+   18/35 0151GBO__Saison_seche_avant_2025-09-17 done
+   19/35 0151GBO__Saison_seche_depuis_2025-09-17 done
+   20/35 0016GBO__Mai done
+   21/35 0016GBO__Saison_des_pluies done
+   22/35 0016GBO__Saison_seche done
+   23/35 0043SAM__Mai done
+   24/35 0043SAM__Saison_des_pluies done
+   25/35 0043SAM__Saison_seche done
+   26/35 0097SAM__Mai done
+   27/35 0097SAM__Octobre done
+   28/35 0097SAM__Saison_des_pluies done
+   29/35 0097SAM__Saison_seche done
+   30/35 0154GBO__Mai done
+   31/35 0154GBO__Octobre done
+   32/35 0154GBO__Saison_des_pluies done
+   33/35 0154GBO__Saison_seche done
+   34/35 0152GBO__Mai_active done
+   35/35 0152GBO__Saison_seche_active done
+
+=== step4_calibrate.py: 9 targets into resultats/holdout/essai_fft_grille
+   1/9 0016GBO__Saison_des_pluies done
+   2/9 0017SAM__Saison_seche_avant_2025-09-25 done
+   3/9 0017SAM__Saison_seche_depuis_2025-09-25 done
+   4/9 0035SAM__Octobre done
+   5/9 0151GBO__Octobre_depuis_2025-09-17 done
+   6/9 0151GBO__Saison_des_pluies_avant_2025-09-17 done
+   7/9 0152GBO__Mai_active done
+   8/9 0152GBO__Saison_seche_active done
+   9/9 0154GBO__Mai done
+
+=== step7_final_reference.py holdout/reference_saison holdout/arbitrage_fft holdout/essai_fft_grille
+source
+arbitrage_fft       33
+essai_fft_grille     2
+criteria met 292 / 350
+NRMSE mean 0.092 median 0.086 max 0.257 | 10 targets > 10 %
+FFT mean 0.159 median 0.152 max 0.301 | 6 targets <= 10 %
+energy |mean| 3.4 % max 47.2 %
+verdict
+non verifiable    22
+rejetee            9
+validee            4
+
+chain finished
+
+35 targets judged on the odd weeks (0 with a test half too short)
+verdicts on the calibration weeks: {'non verifiable': 22, 'rejetee': 9, 'validee': 4}
+verdicts on the test weeks       : {'non verifiable': 20, 'rejetee': 15}
+NRMSE: test mean 0.2060 (median 0.1944, max 0.4344); between halves mean 0.2053 (median 0.2028, max 0.4300); test within the halves gap for 16 targets
+err_E_pct: test mean 18.6640 (median 12.5755, max 80.6016); between halves mean 17.5417 (median 12.3192, max 79.9741); test within the halves gap for 15 targets
+FFT_err: test mean 0.2615 (median 0.2381, max 0.5645); between halves mean 0.2424 (median 0.2458, max 0.5600); test within the halves gap for 17 targets
+17:37 FIN holdout (code 0)
